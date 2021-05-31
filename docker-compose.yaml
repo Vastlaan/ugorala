@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+    client:
+        ports:
+            - 3000:3000 #change to 2995 in production
+        build:
+            context: client
+            dockerfile: Dockerfile
+        image: noirfatale/app-next-ts
+        volumes:
+            - ./client:/usr/src/app
+            - /usr/src/app/node_modules
+            - /usr/src/app/.next
+        env_file:
+        - .env
