@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {fonts} from './fonts'
+import {FlexibleComponentProps} from '../types'
 
 export const ButtonPrimary = styled.button`
     padding: .9rem 1.4rem;
@@ -34,4 +35,32 @@ export const ButtonPrimary = styled.button`
         }
         color: ${p=>p.theme.white};
     }
+`
+
+export const ButtonFull = styled.button<FlexibleComponentProps>`
+    margin: ${p=>p.margin?p.margin:'0'};
+    padding: .9rem 1.4rem;
+    border: none;
+    color: ${p=>p.theme.white};
+    font-family: ${fonts.heading};
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: .15rem;
+    text-transform: uppercase;
+
+    box-shadow: 0 .2rem .2rem .2rem rgba(0,0,0,.2);
+
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(90deg,${p=>p.color?p.color:p.theme.primary} 40%,${p=>p.color?p.color:p.theme.primary} 60%,${p=>p.color?p.color:p.theme.primary} 70%) ${p=>p.color?p.color:p.theme.primary};
+
+    &:hover{
+        background: 
+        linear-gradient(90deg,${p=>p.color?p.color:p.theme.primary} 40%,rgba(255,255,255,0.3) 60%,${p=>p.color?p.color:p.theme.primary} 70%) rgba(255,255,255,.3);
+        background-size:300% 100%;
+        animation: shine .9s ease-out;
+    }
+
 `

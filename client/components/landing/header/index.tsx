@@ -1,15 +1,49 @@
+import { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import {} from '../../../styles'
+import { ButtonFull, Heading1} from '../../../styles'
+import gsap from 'gsap'
+
+const headings = ['Heerlijk bijkomen op een unieke top locatie','Zeer gewaardeerd voor de kwaliteit en sfeer']
 
 export default function HeaderComponent() {
+
+    const [headingIndex, setHeadingIndex] = useState(0) // 0 or 1
+    const target = useRef(new Array())
+
+    useEffect(()=>{
+
+        const tl = gsap.timeline({repeat: -1, repeatDelay: 5})
+
+        tl.to(target.current, {y: "-100%", autoAlpha: 0, delay: 4, duration: 1, stagger: .1})
+        .set(target.current, { autoAlpha: 0, y: "100%" })
+        .call(() => {
+            setHeadingIndex(prevState => {
+                if(prevState === (headings.length - 1) ){
+                    return 0
+                }
+                return prevState + 1
+            })
+        })
+        .to(target.current, {
+            autoAlpha: 1,
+            y: "0",
+            duration: 1,
+            stagger: 0.1,
+        });
+
+        return ()=> {tl.kill()}
+    },[])
+
+
     return (
         <Header>
-            <BackgrounVideo>
-                <video preload='auto' autoPlay loop muted>
-                    <source src='https://michalantczakblogresources.s3.eu-central-1.amazonaws.com/headerCompressed.mp4' type='video/mp4' />
-                    <p>This browser doesn't support video</p>
-                </video>
-            </BackgrounVideo>
+            <Content>
+                <Heading1>{headings[headingIndex].split(' ').map((word, i) => <span  key={i} ref={(el=>target.current.push(el))}>{word} </span>)}</Heading1>
+                <ButtonsConatiner>
+                    <ButtonFull margin='1.4rem'>Menukaart</ButtonFull>
+                    <ButtonFull margin='1.4rem' color='#222'>Tafel reserveren</ButtonFull>
+                </ButtonsConatiner>
+            </Content>
         </Header>
     )
 }
@@ -18,20 +52,21 @@ const Header = styled.header`
     padding: 2.7rem;
     padding-top: 13rem;
     width: 100%;
-    min-height: 80vh;
+    min-height: 60vh;
     position: relative;
+    background-image: url('/img/header-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 `
-const BackgrounVideo = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    z-index:-1;
-
-    video{
-        width: 100%;
-
-    }
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 6.7rem 0 4.7rem 0;
+`
+const ButtonsConatiner = styled.div`
+    margin: 2.7rem;
+    display: flex;
+    justify-content: center;
 `

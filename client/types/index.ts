@@ -22,4 +22,7 @@ export interface FlexibleComponentProps{
   width?: string;
   align?: string;
   justify?: string;
+  delay?: string;
+  url?: string;
+  area?: string;
 }

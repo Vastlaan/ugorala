@@ -17,6 +17,17 @@ interface ThemeProps extends DefaultTheme {
   }
 }
 const StylesConatiner = createGlobalStyle`
+
+
+  @keyframes shine{
+    0% {
+      background-position: right;    
+    }
+    100%{
+      background-position: left;
+    }
+  }
+
   *,
   *::after,
   *::before{

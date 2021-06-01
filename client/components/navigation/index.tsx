@@ -27,7 +27,7 @@ const Navigation = styled.nav`
     left: 0;
     width: 100%;
     background-color: ${p=>p.theme.white};
-    padding: 1.4rem 0;
+    padding: .6rem 1.4rem;
     box-shadow: 0 .2rem .3rem rgba(0,0,0,.2);
     overflow: hidden;
     z-index: 99;

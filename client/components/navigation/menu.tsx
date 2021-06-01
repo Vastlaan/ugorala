@@ -13,17 +13,17 @@ export default function MenuComponent() {
             </li>
             <li>
                 <Link href='/'>
-                    <MenuLink>Destillerderij</MenuLink>
+                    <MenuLink>Ons Aanbod</MenuLink>
                 </Link>
             </li>
             <li>
                 <Link href='/'>
-                    <MenuLink>Vleeswaren</MenuLink>
+                    <MenuLink>Over Ons</MenuLink>
                 </Link>
             </li>
             <li>
                 <Link href='/'>
-                    <MenuLink>Catering</MenuLink>
+                    <MenuLink>Contact</MenuLink>
                 </Link>
             </li>
         </Menu>
