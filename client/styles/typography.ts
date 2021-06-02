@@ -74,3 +74,14 @@ export const Text = styled.p<FlexibleComponentProps>`
   max-width: ${(p)=>p.width?p.width:'65rem'};
   text-align: ${p=>p.align?p.align: 'center'}
 `
+
+export const TextStrong = styled.p<FlexibleComponentProps>`
+  margin: ${p=>p.margin?p.margin:'0'};
+  font-size: 1.9rem;
+  font-family: ${fonts.heading};
+  font-weight:300;
+  color: ${(p)=>p.color?p.color:p.theme.grey4};
+  letter-spacing: .15rem;
+  max-width: ${(p)=>p.width?p.width:'65rem'};
+  text-align: ${p=>p.align?p.align: 'center'}
+`

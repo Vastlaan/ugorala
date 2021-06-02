@@ -64,3 +64,22 @@ export const ButtonFull = styled.button<FlexibleComponentProps>`
     }
 
 `
+
+export const ButtonStrong = styled.p<FlexibleComponentProps>`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: ${p=>p.margin?p.margin:'0'};
+  font-size: 1.9rem;
+  font-family: ${fonts.heading};
+  font-weight:300;
+  color: ${(p)=>p.color?p.color:p.theme.grey4};
+  letter-spacing: .15rem;
+  max-width: ${(p)=>p.width?p.width:'65rem'};
+  text-align: ${p=>p.align?p.align: 'center'};
+  transition: all .3s;
+
+  &:hover{
+      color: ${p=>p.theme.secondary};
+  }
+`
