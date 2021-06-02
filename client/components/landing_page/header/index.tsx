@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import { ButtonFull, Heading1} from '../../../styles'
 import gsap from 'gsap'
 
-const headings = ['Heerlijk bijkomen op een unieke top locatie','Zeer gewaardeerd voor de kwaliteit en sfeer']
+interface HeaderProps{
+    headings: string[];
+}
 
-export default function HeaderComponent() {
+export default function HeaderComponent({headings}) {
 
     const [headingIndex, setHeadingIndex] = useState(0) // 0 or 1
     const target = useRef(new Array())

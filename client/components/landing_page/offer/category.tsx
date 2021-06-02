@@ -27,12 +27,13 @@ const Button = styled(ButtonFull)`
     transition: all .6s;
 `
 const Label = styled.div`
-    padding: .9rem 1.4rem;
+    padding: .6rem .9rem;
     position: absolute;
     top: 2.7rem;
     left: 0;
     background-color: ${p=>p.theme.primary};
-    font-size: 1.9rem;
+    font-size: 1.6rem;
+    letter-spacing: .15rem;
     text-transform: uppercase;
     transition: all .3s;
     color: ${p=>p.theme.white};

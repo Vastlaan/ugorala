@@ -50,7 +50,7 @@ const CookiesStatement = styled.section`
     left: 0;
     right: 0;
     padding: 1.4rem 2.7rem;
-    background-color: ${(p: ThemeProps) => p.theme.black};
+    background-color: ${(p) => p.theme.black};
     transform: translateY(100%);
     display: flex;
     align-items: center;
@@ -58,33 +58,33 @@ const CookiesStatement = styled.section`
     flex-wrap: wrap;
     visibility: hidden;
     opacity: 0;
-    border: 3px solid ${(p: ThemeProps) => p.theme.primary};
+    border: 3px solid ${(p) => p.theme.primary};
 `;
 
-const CustomText = styled.p`
-    margin: ${(p: FlexibleComponentProps) => (p.margin ? p.margin : "0")};
+const CustomText = styled.p<FlexibleComponentProps>`
+    margin: ${(p) => (p.margin ? p.margin : "0")};
     font-size: 1.9rem;
     font-family: ${fonts.heading};
     font-weight: 300;
-    color: ${(p: ThemeProps) => (p.color ? p.color : p.theme.greyLight)};
+    color: ${(p) => (p.color ? p.color : p.theme.grey1)};
     line-height: 1.3;
     letter-spacing: 0.15rem;
-    text-align: ${(p: FlexibleComponentProps) => (p.align ? p.align : "center")};
+    text-align: ${(p) => (p.align ? p.align : "center")};
 
     span {
         text-decoration: underline;
-        color: ${(p: ThemeProps) => p.theme.primary};
+        color: ${(p) => p.theme.primary};
         cursor: pointer;
     }
 `;
 
 const ButtonSmall = styled.button<FlexibleComponentProps>`
-    margin: ${(p:FlexibleComponentProps)=>p.margin?p.margin: '1.4rem'});
+    margin: ${(p)=>p.margin?p.margin: '1.4rem'});
     padding: 0.6rem 0.9rem;
     background-color: #04917c;
     border: 1px solid #04917c;
     font-family: ${fonts.heading};
     font-weight: 300;
-    color: ${(p:ThemeProps) => (p.color ? p.color : p.theme.greyLight)};
+    color: ${(p) => (p.color ? p.color : p.theme.greyLight)};
     letter-spacing: 0.15rem;
 `;
