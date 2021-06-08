@@ -1,10 +1,11 @@
 import styled from 'styled-components'
-import {fonts} from './fonts'
-import {ThemeProps, FlexibleComponentProps} from '../types'
+import { fonts} from './fonts'
+import respond from './respond'
+import {FlexibleComponentProps} from '../types'
 
 export const Heading1 = styled.h1<FlexibleComponentProps>`
   margin: ${p=>p.margin?p.margin:'0'};
-  font-size: 6.7rem;
+  font-size: 4.7rem;
   font-weight: 500;
   letter-spacing: .2rem;
   line-height: 1.3;
@@ -13,6 +14,8 @@ export const Heading1 = styled.h1<FlexibleComponentProps>`
   text-shadow: .2rem .3rem .4rem rgba(0,0,0,.3);
   max-width: ${p=>p.width?p.width:'65rem'};
   text-align: ${p=>p.align?p.align:'center'};
+
+  ${()=>respond('s','font-size: 6.7rem;')}
 
   span{
     display: inline-block;

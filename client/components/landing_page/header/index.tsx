@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { ButtonFull, Heading1} from '../../../styles'
+import { respond, ButtonFull, Heading1} from '../../../styles'
 import gsap from 'gsap'
 
 interface HeaderProps{
@@ -51,7 +51,7 @@ export default function HeaderComponent({headings}) {
 }
 
 const Header = styled.header`
-    padding: 2.7rem;
+    padding: 0;
     padding-top: 13rem;
     width: 100%;
     min-height: 60vh;
@@ -60,6 +60,10 @@ const Header = styled.header`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+
+    ${()=>respond('s','min-height: 45vh;')}
+    ${()=>respond('m','min-height: 60vh;padding: 2.7rem; padding-top: 13rem;')}
+    
 `
 const Content = styled.div`
     display: flex;
@@ -68,7 +72,8 @@ const Content = styled.div`
     margin: 6.7rem 0 4.7rem 0;
 `
 const ButtonsConatiner = styled.div`
-    margin: 2.7rem;
+    margin: 0rem;
     display: flex;
     justify-content: center;
+    ${()=>respond('m','margin: 2.7rem;')}
 `

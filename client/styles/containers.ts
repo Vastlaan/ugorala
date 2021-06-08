@@ -26,10 +26,12 @@ flex-direction: column;
 align-items: ${(p) => (p.align ? p.align : "center")};
 justify-content: ${(p) => (p.justify ? p.justify : "center")};
 margin: ${(p) => (p.margin ? p.margin : "0")};
+width: ${p=>p.width?p.width:'auto'};
 `;
 export const FlexRow = styled.div<FlexibleComponentProps>`
 display: flex;
 align-items: ${(p) => (p.align ? p.align : "center")};
 justify-content: ${(p) => (p.justify ? p.justify : "center")};
 margin: ${(p) => (p.margin ? p.margin : "0")};
+width: ${p=>p.width?p.width:'auto'};
 `;

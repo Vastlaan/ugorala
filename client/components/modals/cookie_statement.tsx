@@ -59,6 +59,7 @@ const CookiesStatement = styled.section`
     visibility: hidden;
     opacity: 0;
     border: 3px solid ${(p) => p.theme.primary};
+    z-index: 99;
 `;
 
 const CustomText = styled.p<FlexibleComponentProps>`

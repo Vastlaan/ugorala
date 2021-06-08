@@ -4,20 +4,20 @@ import Contact from './contact'
 import Copyrights from './copyrights'
 import Services from './services'
 import Hours from './hours'
-import {ConatinerNarrow, FlexCol, respond, TextStrong} from '../../styles'
+import {ConatinerNarrow, respond, FlexRow} from '../../styles'
 
 export default function FooterComponent() {
     return (
         <Footer>
 
             <ConatinerNarrow padding='4.7rem 1.4rem 1.4rem 1.4rem;'>
-                {/* <Logo>
-                    <Image src='/img/logo-white.svg' alt='logo' layout='fill' />
-                </Logo> */}
                 <Grid>
                     <Contact />
-                    <Services />
-                    <Hours/>
+                    <MenuContainer>
+                        <Services />
+                        <Hours/>
+                    </MenuContainer>
+                    
                 </Grid>
             </ConatinerNarrow>
 
@@ -34,6 +34,17 @@ const Grid = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    ${()=>respond('s', 'display: grid; grid-template-columns: 25rem 1fr; grid-gap: 2.7rem;')}
+    ${()=>respond('m', 'display: grid; grid-template-columns: 35rem 1fr; grid-gap: 2.7rem;')}
+    
+`
+const MenuContainer = styled.div`
+    width: 100%;
+    margin: 4.7rem 0 1.4rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 
-    ${()=>respond('m', 'display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 2.7rem;')}
+    ${()=>respond('s','justify-content: space-between; margin: 1.4rem 0;')}
+    
 `

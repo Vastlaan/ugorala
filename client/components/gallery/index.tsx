@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 import FullScreenGallery from '../modals/full_screen_photo_gallery'
-import {SectionNarrow} from '../../styles'
+import { respond, SectionNarrow} from '../../styles'
 
 interface GalleryProps{
     imagesUrls: string[];
@@ -37,14 +37,32 @@ export default function GalleryComponent({imagesUrls}: GalleryProps) {
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: repeat(4, 24rem);
+    grid-template-columns: 1fr;
     grid-gap: .6rem;
     justify-content: center;
+    align-items: center;
+
+    ${()=>respond('s',`
+        grid-template-columns: repeat(2, 24rem);
+    ` )}
+
+    ${()=>respond('m',`
+        grid-template-columns: repeat(3, 24rem);
+    ` )}
+    ${()=>respond('l',`
+        grid-template-columns: repeat(4, 24rem);
+    ` )}
+    
 `
 const ImageContainer = styled.div`
     position: relative;
-    width: 24rem;
-    height: 16rem;
+    width: 100%;
+    height: 24rem;
+
+    ${()=>respond('s',`
+        width: 24rem;
+        height: 16rem;
+    ` )}
 
     &::before{
         content: "";

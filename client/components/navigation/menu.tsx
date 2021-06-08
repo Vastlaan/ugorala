@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import {fonts} from '../../styles'
+import {fonts, respond} from '../../styles'
 import { FlexibleComponentProps } from '../../types'
 
 export default function MenuComponent() {
@@ -35,11 +35,16 @@ const Menu = styled.ul`
     display: flex;
     align-itmes: center;
     justify-content: center;
+    flex-direction: column;
     flex: 1;
-    padding: 0 1.4rem;
+
+    ${()=>respond('m', `
+        flex-direction: row;
+        padding: 0 1.4rem;
+    `)}
 `
 const MenuLink = styled.button<FlexibleComponentProps>`
-    margin: ${p=>p.margin?p.margin: '0 1.4rem'};
+    margin: ${p=>p.margin?p.margin: '1.4rem'};
     padding: .9rem 0;
     border: none;
     background-color: transparent;
@@ -49,6 +54,9 @@ const MenuLink = styled.button<FlexibleComponentProps>`
     letter-spacing: .15rem;
     text-transform: uppercase;
     position: relative;
+    overflow: hidden;
+
+    ${p=>respond('m', `margin: ${p.margin?p.margin: '0 1.4rem'};`)}
 
     &::before{
         content: "";
@@ -63,7 +71,7 @@ const MenuLink = styled.button<FlexibleComponentProps>`
 
     &:hover{
         &::before{
-            top: 0;
+            top: .6rem;
         }
     }
 

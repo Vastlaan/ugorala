@@ -1,7 +1,7 @@
 
 import Link from 'next/link'
 import styled from 'styled-components'
-import {Heading1, Text, Line, ButtonFull} from '../../../styles'
+import {Heading1, Text, Line, ButtonFull, respond} from '../../../styles'
 
 interface VideoBackgroundProps{
   heading: string;
@@ -54,7 +54,10 @@ const Container = styled.div`
     position: absolute;
     bottom: 0;
     left:0;
-    width: 100%;
+    min-width: 100%;
+    height:100%;
     z-index: -2;
+
+    ${()=>respond('669px','width:100%; height: auto;')}
   }
 `

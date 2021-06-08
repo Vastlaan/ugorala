@@ -27,5 +27,9 @@ export default function respond(type : string, content: string) {
         return `@media only screen and (min-width: 2561px){
     ${content}
   }`;
+    }else {
+      return `@media only screen and (min-width: ${type}){
+        ${content}
+      }`
     }
 }

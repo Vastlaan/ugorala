@@ -1,7 +1,7 @@
 import {Dispatch, SetStateAction} from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
-import {fonts} from '../../styles'
+import {fonts, respond} from '../../styles'
 import {MdClose} from 'react-icons/md'
 import {IoChevronBackOutline, IoChevronForwardOutline} from 'react-icons/io5'
 
@@ -52,7 +52,8 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4.7rem 2.7rem;
+    padding: 4.7rem 0rem;
+    ${()=>respond('m','padding: 4.7rem 2.7rem;')}
 `
 const CloseArea = styled.div`
     position: absolute;
@@ -60,7 +61,7 @@ const CloseArea = styled.div`
     left:0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255,255,255,.7);
+    background-color: rgba(255,255,255,1);
     z-index: -1;
 `
 const Close = styled.div`
@@ -74,9 +75,11 @@ const Close = styled.div`
 `
 const ImageContainer = styled.div`
     position: relative;
-    width: 90%;
-    height: 100%;
+    width: 100%;
+    min-height: 45rem;
     margin: 0 auto;
+
+    ${()=>respond('m','width: 90%; height:100%;')}
 `
 const Count = styled.div`
     position: absolute;

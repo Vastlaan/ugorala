@@ -26,8 +26,14 @@ export default function OfferComponent() {
 
 const Grid = styled.div`
     
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2.7rem;
+    grid-template-areas: 
+            "res"
+            "vod"
+            "cat"
+            "sau";
     align-items: center;
     width: 100%;
 
@@ -38,7 +44,7 @@ const Grid = styled.div`
         grid-template-areas: 
             "res cat cat"
             "vod vod sau";
-        grid-gap: 2.7rem;
+        
         align-items: start;
     `)}
 `
