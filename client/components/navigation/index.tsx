@@ -17,7 +17,6 @@ export default function NavigationComponent() {
 
     useEffect(()=>{
         function switchSize(){
-            console.log(window.innerWidth <= 768)
             return window.innerWidth <= 768 ? setIsSmall(true): setIsSmall(false)
         }
         window.addEventListener('resize',switchSize)

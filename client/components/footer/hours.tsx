@@ -1,26 +1,21 @@
-import Link from 'next/link';
-import styled from 'styled-components'
-import {FlexCol, Heading3, TextStrong} from '../../styles'
+import {useContext} from 'react'
+import {Context} from '../../store'
+import {FlexCol, Heading6, TextStrong} from '../../styles'
 
 export default function ServicesComponent() {
+
+    const {state} = useContext(Context)
+
+    const {landing_page:{opening_hours}} = state
+
     return (
         <FlexCol align='flex-start'>
-            <Heading3 color='#fefefe' margin='0 0 2.7rem 0'>{data.heading}</Heading3>
-            {data.list.map((item, i)=>{
+            <Heading6 color='#fefefe' margin='0 0 2.7rem 0'>Openingstijden</Heading6>
+            {opening_hours.map((row, i)=>{
                 return(
-                    <TextStrong key={`${item.day}-${i}`} margin='.5rem 0' color='#fdf8ec'>{item.day}: {item.start}-{item.end}</TextStrong>
+                    <TextStrong key={`${row.day}-${i}`} margin='.5rem 0' color='#fdf8ec'>{row.day}: {row.start}-{row.end}</TextStrong>
                 )
             })}
         </FlexCol>
     )
-}
-const data= {
-    heading: 'Openingstijden',
-    list: [
-        {day: 'Woensdag', start: '16:00', end: "22:00"},
-        {day: 'Donderdag', start: '16:00', end: "22:00"},
-        {day: 'Vrijdag', start: '16:00', end: "24:00"},
-        {day: 'Zaterdag', start: '16:00', end: "24:00"},
-        {day: 'Zondag', start: '16:00', end: "24:00"},
-    ]
 }

@@ -3,14 +3,40 @@ version: "3.3"
 services:
     client:
         ports:
-            - 3000:3000 #change to 2995 in production
+            - 3000:3000
         build:
             context: client
             dockerfile: Dockerfile
-        image: noirfatale/app-next-ts
+        image: noirfatale/ugorala-client
+        # networks:
+        #     - frontend
+        #     - backend
         volumes:
             - ./client:/usr/src/app
             - /usr/src/app/node_modules
             - /usr/src/app/.next
-        env_file:
-        - .env
+        environment: 
+            - STRAPI_URL=http://strapi:1337
+
+    strapi:
+        image: noirfatale/ugorala-strapi
+        env_file: 
+            - .env
+        # networks:
+        #     - backend
+        build: 
+            context: strapi
+            dockerfile: Dockerfile
+        volumes:
+            - ./app:/usr/src/app
+            - /usr/src/app/node_modules
+        ports:
+            - 1337:1337
+        depends_on:
+            - mongo
+
+# networks:
+#     frontend:
+#         driver: bridge
+#     backend:
+#         driver: bridge

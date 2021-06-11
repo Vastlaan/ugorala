@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import {FlexCol, Heading3, ButtonStrong} from '../../styles'
+import {FlexCol, Heading6, ButtonStrong} from '../../styles'
 
 export default function ServicesComponent() {
     return (
         <FlexCol align='flex-start'>
-            <Heading3 color='#fefefe' margin='0 0 2.7rem 0'>{data.heading}</Heading3>
+            <Heading6 color='#fefefe' margin='0 0 2.7rem 0'>{data.heading}</Heading6>
             {data.list.map(item=>{
                 return(
                     <Link href={item.link} key={item.link}>

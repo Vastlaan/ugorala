@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stories",
+  "info": {
+    "name": "story"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "imgUrl": {
+      "type": "string"
+    },
+    "paragraphs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "paragraphs.paragraphs"
+    }
+  }
+}

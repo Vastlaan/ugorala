@@ -26,3 +26,30 @@ export interface FlexibleComponentProps{
   url?: string;
   area?: string;
 }
+
+export interface IOpeningHours{
+  id?: string;
+  day?: string;
+  start?: string;
+  end?: string;
+  order?: number;
+  createdAt?: string;
+  published_at?: string;
+  updatedAt?: string;
+  __v?: number;
+}
+
+export interface IAction {
+  type: string;
+  payload: any;
+}
+
+export interface IState {
+  landing_page: {
+    opening_hours: IOpeningHours[] | undefined[];
+    stories: any[],
+    abouts: any[]
+  }
+}
+
+export type IContext = { state: IState; dispatch?: React.Dispatch<IAction>; }

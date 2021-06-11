@@ -1,3 +1,5 @@
+import {useContext} from 'react'
+import {Context} from '../../store'
 import Header from './header'
 import Intersection from '../utils/intersection'
 import Offer from './offer'
@@ -6,26 +8,30 @@ import VideoBackground from '../utils/background_video'
 import Gallery from '../gallery'
 
 export default function LandingPage(){
+
+  const {state:{landing_page:{stories, abouts}}} = useContext(Context)
+
   return (
     <>
 
       <Header headings={['Heerlijk bijkomen op een unieke top locatie','Zeer gewaardeerd voor de kwaliteit en sfeer']} />
 
-      <Intersection 
-        heading='Restaurant u Górala' 
-        text="Ons verhaal begint op in 2014. Het moment dat we besluiten om een klein beetje van Polen naar Nederland te brengen. Het restaurant met de zeer Poolse naam: U Górala, waar u kunt genieten van onze typisch Poolse gerechten, gemaakt met geselecteerde seizoensproducten en typische poolse ingrediënten."
+      {
+        abouts.length > 0 && <Intersection 
+        heading={abouts[0].heading}
+        text={abouts[0].text}
       />
+      }
+      
 
       <Offer />
 
-      <Story 
-        heading='Onze distillaten' 
-        imgUrl='/img/liquor.jpg' 
-        paragraphs={[
-          'Wij schromen zeker niet om zo over onszelf te praten. Wij produceren en verkopen geheel legaal ambachtelijk bier, zelfgemaakte wijnen, ciders en zelfs gin. Maar Moonshine en een breed scala aan likeuren zijn echter onze trots.',
-          'Heeft u zich ooit afgevraagd waar u Moonshine in Nederland kunt kopen? Het antwoord is heel simpel - uGórala!',
-          'Onze traditionele recepten garanderen u kwaliteit van de hoogste plank.'
-        ]} />
+      {
+        stories.length > 0 && <Story 
+          heading={stories[0].heading}
+          imgUrl={stories[0].imgUrl}
+          paragraphs={stories[0].paragraphs.map(para=>para.text)} />
+      }
         
         <VideoBackground 
           heading='Feesten en partijen' 
@@ -41,14 +47,12 @@ export default function LandingPage(){
 
         <Gallery imagesUrls={ ['/img/catering.jpg', '/img/vodka.jpg', '/img/liquor.jpg', '/img/restaurant.jpg', '/img/roast.jpg', '/img/liquor.jpg', '/img/vodka.jpg', '/img/roast.jpg'] } />
 
-        <Story 
-        heading='Vleeswaren' 
-        imgUrl='/img/sausages.jpg' 
-        paragraphs={[
-          'Wij schromen zeker niet om zo over onszelf te praten. Wij produceren en verkopen geheel legaal ambachtelijk bier, zelfgemaakte wijnen, ciders en zelfs gin. Maar Moonshine en een breed scala aan likeuren zijn echter onze trots.',
-          'Heeft u zich ooit afgevraagd waar u Moonshine in Nederland kunt kopen? Het antwoord is heel simpel - uGórala!',
-          'Onze traditionele recepten garanderen u kwaliteit van de hoogste plank.'
-        ]} />
+        {
+        stories.length > 1 && <Story 
+          heading={stories[1].heading}
+          imgUrl={stories[1].imgUrl}
+          paragraphs={stories[1].paragraphs.map(para=>para.text)} />
+      }
 
     </>
   )

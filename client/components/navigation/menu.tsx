@@ -22,7 +22,7 @@ export default function MenuComponent() {
                 </Link>
             </li>
             <li>
-                <Link href='/'>
+                <Link href='/contact'>
                     <MenuLink>Contact</MenuLink>
                 </Link>
             </li>
