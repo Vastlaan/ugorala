@@ -1,6 +1,6 @@
 FROM node:12
 
-ENV PORT 3000       
+ENV PORT 3000
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -13,7 +13,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 3000     
+EXPOSE 3000
 
-CMD "npm" "run" "dev"
-
+CMD 'npm' 'run' 'dev'

@@ -1,0 +1,36 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: admin-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabel:
+      app: admin
+  template:
+    metadata:
+      labels:
+        app: admin
+    spec:
+      containers:
+        - name: admin
+          image: noirfatale/ugorala-admin
+          env:
+            - name: STRAPI_URL
+              value: http://strapi-srv:1337
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: admin
+  ports:
+    - name: admin
+      protocol: TCP
+      port: 3000
+      targetPort: 4000
+
+

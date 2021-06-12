@@ -8,9 +8,6 @@ services:
             context: client
             dockerfile: Dockerfile
         image: noirfatale/ugorala-client
-        # networks:
-        #     - frontend
-        #     - backend
         volumes:
             - ./client:/usr/src/app
             - /usr/src/app/node_modules
@@ -22,21 +19,24 @@ services:
         image: noirfatale/ugorala-strapi
         env_file: 
             - .env
-        # networks:
-        #     - backend
         build: 
             context: strapi
             dockerfile: Dockerfile
         volumes:
-            - ./app:/usr/src/app
+            - ./strapi:/usr/src/app
             - /usr/src/app/node_modules
         ports:
             - 1337:1337
-        depends_on:
-            - mongo
-
-# networks:
-#     frontend:
-#         driver: bridge
-#     backend:
-#         driver: bridge
+    
+    admin:
+        image: noirfatale/ugorala-admin
+        build: 
+            context: admin
+            dockerfile: Dockerfile
+        volumes:
+            - ./admin:/usr/src/app
+            - /usr/src/app/node_modules
+        ports:
+            - 4000:3000
+        environment: 
+            - STRAPI_URL=http://strapi:1337
