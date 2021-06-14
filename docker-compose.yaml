@@ -40,3 +40,4 @@ services:
             - 4000:3000
         environment: 
             - STRAPI_URL=http://strapi:1337
+            - SESSION_SECRET=LSAJWEIJ02UU0RU0R0UJEWOFJ23039280AQfwqf234

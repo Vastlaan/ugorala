@@ -9,7 +9,7 @@ import {SectionNarrow, ConatinerNarrow, Line, FlexCol, FlexRow} from './containe
 // TYPOGRAPHY
 import {Heading1, Heading2,Heading3, Heading6, Text, TextStrong} from './typography'  
 // BUTTONS
-import {ButtonPrimary,ButtonFull, ButtonStrong} from './buttons'
+import {ButtonPrimary,ButtonFull, ButtonStrong, ButtonLink} from './buttons'
 
 export {
   // MEDIA QUERIES
@@ -23,5 +23,5 @@ export {
   // TYPOGRAPHY
   Heading1, Heading2,Heading3, Heading6,Text, TextStrong,
   // BUTTONS
-  ButtonPrimary,ButtonFull, ButtonStrong,
+  ButtonPrimary,ButtonFull, ButtonStrong, ButtonLink,
 }

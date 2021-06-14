@@ -1,16 +1,17 @@
 import GlobalStyles from "../globals/globalStyles";
 import ThemeProvider from "../globals/themeProvider";
+import StateProvider from '../globals/stateProvider'
 
-function App(props) {
-
-    const { Component, pageProps, opening_hours, stories, abouts } = props
+function App({Component, pageProps}) {
 
     return (
         <>
+            <StateProvider>
                 <ThemeProvider>
                     <GlobalStyles />
                     <Component {...pageProps} />
                 </ThemeProvider>
+            </StateProvider>
         </>
     );
 }

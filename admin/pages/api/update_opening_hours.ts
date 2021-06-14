@@ -12,7 +12,8 @@ export default async function handler(req, res){
                 const response = await fetch(`${process.env.STRAPI_URL}/opening-hours/${id}`,{
                     method: "PUT",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "Authorization": req.headers.authorization
                     },
                     body: JSON.stringify({day, start, end})
                 })
@@ -21,6 +22,7 @@ export default async function handler(req, res){
                 console.log(data)
             }catch(e){
                 console.error(e)
+                res.status(400).json({status: "Error"})
             }
         }))
     

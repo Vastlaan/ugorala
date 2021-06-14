@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import styled from 'styled-components'
+import {Context} from '../../globals/stateProvider'
 import Row from './row'
 import {SectionNarrow, Heading3, TextStrong, ButtonPrimary} from '../../styles'
 
@@ -8,6 +9,9 @@ export default function OpeningHoursComponent({opening_hours}) {
 
     const [newHours, setNewHours] = useState(opening_hours||[])
 
+    const {user} = useContext(Context)
+    console.log('opening hours user:', user)
+
     async function handleSubmit(e){
         e.preventDefault()
 
@@ -15,7 +19,8 @@ export default function OpeningHoursComponent({opening_hours}) {
             const response = await fetch('/api/update_opening_hours', {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${user.jwt}`
                 },
                 body: JSON.stringify({newHours})
             })
@@ -29,7 +34,7 @@ export default function OpeningHoursComponent({opening_hours}) {
     }
 
     return (
-        <SectionNarrow>
+        <SectionNarrow margin='4.7rem auto'>
             <Heading3 margin="2.7rem 0" width="fit-content">Opening hours</Heading3>
 
             <Fields>

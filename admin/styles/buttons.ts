@@ -84,3 +84,11 @@ export const ButtonStrong = styled.p<FlexibleComponentProps>`
       color: ${p=>p.theme.secondary};
   }
 `
+
+export const ButtonLink = styled.button<FlexibleComponentProps>`
+    margin: ${p=>p.margin?p.margin:'0'};
+    background-color: transparent;
+    border: none;
+    font-size: 1.9rem;
+    cursor: pointer;
+`
