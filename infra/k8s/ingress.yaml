@@ -1,0 +1,32 @@
+# This file requires ingress pod to be running 
+# Please first run this command on Mac : 
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: ugorala.test.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend: 
+              service:
+                name: client-cluster-srv
+                port:
+                  number: 3000
+    - host: admin.ugorala.test.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: admin-srv
+                port:
+                  number: 3000

@@ -1,6 +1,9 @@
+# syntax=docker/dockerfile:1.2
+
 FROM node:12
 
 ENV PORT 3000
+ENV SESSION_SECRET ${SESSION_SECRET}
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -10,8 +13,6 @@ COPY package.json .
 RUN npm install
 
 COPY . .
-
-RUN npm run build
 
 EXPOSE 3000
 
