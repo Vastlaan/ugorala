@@ -1,6 +1,7 @@
 import {useState, useContext} from 'react'
+import Image from 'next/image'
 import {Context} from '../../globals/stateProvider'
-import styled from 'styled-components'
+import Story from './story'
 import { SectionNarrow, Heading3, TextStrong, ButtonPrimary } from "../../styles"
 
 export default function StoriesComponent({stories}) {
@@ -8,8 +9,7 @@ export default function StoriesComponent({stories}) {
     const {user} = useContext(Context)
 
     const [newStories, setNewStories] = useState(stories)
-
-    console.log(user.jwt)
+    console.log(stories)
 
     async function updateStories(e){
         e.preventDefault()
@@ -39,31 +39,7 @@ export default function StoriesComponent({stories}) {
 
                 {newStories.map((story, i)=>{
                     return(
-                        <Story key={`story-${i}`}>
-                            <label htmlFor="heading"><TextStrong>Heading:</TextStrong></label>
-                            <input type="text" name='heading' value={story.heading} onChange={(e)=>{
-                                const newState = [...newStories]
-                                newState[i].heading = e.target.value
-                                return setNewStories(newState)
-                            }} />
-                            <label htmlFor="imgUrl"><TextStrong>Image Url:</TextStrong></label>
-                            <input type="text" name='imgUrl' value={story.imgUrl} onChange={(e)=>{
-                                const newState = [...newStories]
-                                newState[i].imgUrl = e.target.value
-                                return setNewStories(newState)
-                            }} />
-                            <TextStrong>Paragraphs:</TextStrong>
-                            {story.paragraphs.map((para,index) => {
-                                return(
-                                    <textarea key={index} name={`para-${i}`} value={para.text} onChange={e=>{
-                                        const newState = [...newStories]
-                                        newState[i].paragraphs[index].text = e.target.value
-                                        return setNewStories(newState)
-                                    }}>
-                                    </textarea>
-                                )
-                            })}
-                        </Story>
+                        <Story key={`story-${i}`} i={i} story={story} newStories={newStories} setNewStories={setNewStories} />
                     )
                 })}
                 <ButtonPrimary margin='1.4rem 0'>Update Stories</ButtonPrimary>
@@ -71,18 +47,3 @@ export default function StoriesComponent({stories}) {
         </SectionNarrow>
     )
 }
-
-const Story = styled.div`
-    margin: 1.4rem 0;
-    padding: 1.4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: ${p=>p.theme.grey2};
-
-    input, textarea{
-        margin: 1.4rem;
-        padding: .3rem .9rem;
-        align-self: stretch;
-    }
-`

@@ -18,7 +18,7 @@ services:
     strapi:
         image: noirfatale/ugorala-strapi
         env_file: 
-            - .env
+            - .env-strapi
         build: 
             context: strapi
             dockerfile: Dockerfile
@@ -38,6 +38,5 @@ services:
             - /usr/src/app/node_modules
         ports:
             - 4000:3000
-        environment: 
-            - STRAPI_URL=http://strapi:1337
-            - SESSION_SECRET=LSAJWEIJ02UU0RU0R0UJEWOFJ23039280AQfwqf234
+        env_file: 
+            - .env-admin

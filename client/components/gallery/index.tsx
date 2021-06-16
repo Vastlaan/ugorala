@@ -25,7 +25,7 @@ export default function GalleryComponent({imagesUrls}: GalleryProps) {
                 {imagesUrls.map((url, i)=>{
                     return(
                         <ImageContainer key={`gallery-${i}`} onClick={()=>displayFullScreen(i)}>
-                            <Image src={url} alt="dish" layout='fill' objectFit='cover' />
+                            <Image priority={true} src={url} alt="dish" layout='fill' objectFit='cover' />
                         </ImageContainer>
                     )
                 })}

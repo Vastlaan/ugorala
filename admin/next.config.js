@@ -8,6 +8,6 @@ module.exports = {
       return config
     },
     images: {
-      domains: ["michalantczakblogresources.s3.eu-central-1.amazonaws.com", "s3.eu-central-1.amazonaws.com"]
+      domains: ["michalantczakblogresources.s3.eu-central-1.amazonaws.com", ""] // empty string for blob images
     }
   }

@@ -10,7 +10,6 @@ export default function OpeningHoursComponent({opening_hours}) {
     const [newHours, setNewHours] = useState(opening_hours||[])
 
     const {user} = useContext(Context)
-    console.log('opening hours user:', user)
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -54,14 +53,12 @@ export default function OpeningHoursComponent({opening_hours}) {
                                     const newState = [...newHours]
                                     const index = newState.findIndex(field=>field.day===row.day)
                                     newState[index].start = e.target.value
-                                    console.log(newState)
                                     return setNewHours(newState)
                                 }} />
                                 <input type="text" name={`end-${i}`} id={`end-${i}`} value={row.end} onChange={e=>{
                                     const newState = [...newHours]
                                     const index = newState.findIndex(field=>field.day===row.day)
                                     newState[index].end = e.target.value
-                                    console.log(newState)
                                     return setNewHours(newState)
                                 }} />    
                             </Fields>

@@ -25,7 +25,7 @@ export default function StoryComponent({heading, imgUrl, paragraphs }:StoryProps
                     })}
                 </TextContainer>
                 <ImageContainer>
-                    <Image src={imgUrl} alt={heading} layout='fill' objectFit='cover'/>
+                    <img src={imgUrl} alt={heading} />
                 </ImageContainer>
             </Grid>
         </SectionNarrow>
@@ -53,6 +53,13 @@ const ImageContainer = styled.div`
     height: 35rem;
     position: relative;
     order: -1;
+
+    img{
+        width: 100%;
+        height:100%;
+        object-fit: cover;
+
+    }
 
     ${()=>respond('m',`
         width: 45rem;
