@@ -5,7 +5,7 @@ import {lightTheme, darkTheme} from './colors'
 // FONTS
 import {fonts} from './fonts'
 // CONTAINERS
-import {SectionNarrow, ContainerNarrow, Line, FlexCol, FlexRow} from './containers'
+import {SectionNarrow, ContainerNarrow, Line, FlexCol, FlexRow, ContentContainer} from './containers'
 // TYPOGRAPHY
 import {Heading1, Heading2,Heading3, Heading6, Text, TextStrong} from './typography'  
 // BUTTONS
@@ -19,7 +19,7 @@ export {
   //FONTS
   fonts,
   // CONTAINERS
-  SectionNarrow, ContainerNarrow, Line, FlexCol, FlexRow,
+  SectionNarrow, ContainerNarrow, Line, FlexCol, FlexRow, ContentContainer,
   // TYPOGRAPHY
   Heading1, Heading2,Heading3, Heading6,Text, TextStrong,
   // BUTTONS

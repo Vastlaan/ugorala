@@ -1,15 +1,15 @@
 import {useState, useContext} from 'react'
-import Image from 'next/image'
 import {Context} from '../../globals/stateProvider'
 import Story from './story'
-import { ContainerNarrow, Heading3, TextStrong, ButtonPrimary } from "../../styles"
+import Modal from '../modals/confirmation'
+import { ContainerNarrow, Heading3, ButtonPrimary } from "../../styles"
 
 export default function StoriesComponent({stories}) {
 
     const {user} = useContext(Context)
 
-    const [newStories, setNewStories] = useState(stories)
-    console.log(stories)
+    const [newStories, setNewStories] = useState(stories||[])
+    const [displayModal, setDisplayModal] = useState(false)
 
     async function updateStories(e){
         e.preventDefault()
@@ -23,7 +23,15 @@ export default function StoriesComponent({stories}) {
                 },
                 body: JSON.stringify({newStories})
             })
-            const data = response.json()
+            const data = await response.json()
+
+            if(data.status === 'error'){
+                // set up some errors
+                return
+            }
+            // display confiramtion modal and refresh page
+            setDisplayModal(true)
+
         }catch(e){
             console.error(e)
 
@@ -43,6 +51,9 @@ export default function StoriesComponent({stories}) {
                 })}
                 <ButtonPrimary margin='1.4rem 0'>Update Stories</ButtonPrimary>
             </form>
+            {
+                displayModal && <Modal setDisplayModal={setDisplayModal} message='Your data has been successfully uploaded!' />
+            }
         </ContainerNarrow>
     )
 }

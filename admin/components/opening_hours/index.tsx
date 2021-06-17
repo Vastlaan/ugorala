@@ -1,12 +1,14 @@
 import {useState, useContext} from 'react'
 import styled from 'styled-components'
 import {Context} from '../../globals/stateProvider'
+import Modal from '../modals/confirmation'
 import {ContainerNarrow, Heading3, TextStrong, Text, ButtonPrimary} from '../../styles'
 
 
 export default function OpeningHoursComponent({opening_hours}) {
 
     const [newHours, setNewHours] = useState(opening_hours||[])
+    const [displayModal, setDisplayModal] = useState(false)
 
     const {user} = useContext(Context)
 
@@ -25,7 +27,12 @@ export default function OpeningHoursComponent({opening_hours}) {
     
             const data = await response.json()
 
-            // display modal if data.status !== 'error'
+            if(data.status==='error'){
+                // set errors handling here
+                return
+            }
+            // display modal 
+            setDisplayModal(true)
         }catch(e){
             console.error(e)
         }
@@ -65,6 +72,10 @@ export default function OpeningHoursComponent({opening_hours}) {
                 }
                 <ButtonPrimary margin='1.4rem 0'>Update opening hours</ButtonPrimary>
             </form>
+
+            {
+                displayModal && <Modal setDisplayModal={setDisplayModal} message='Your data has been successfully uploaded!' />
+            }
         </ContainerNarrow>
     )
 }

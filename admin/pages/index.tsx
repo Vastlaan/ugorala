@@ -4,6 +4,7 @@ import {Context} from '../globals/stateProvider'
 import { withIronSession } from "next-iron-session";
 import OpeningHours from '../components/opening_hours'
 import Stories from '../components/stories'
+import Abouts from '../components/abouts'
 
 export default function Page({opening_hours, stories, abouts, user}) {
 
@@ -19,6 +20,8 @@ export default function Page({opening_hours, stories, abouts, user}) {
                 return <OpeningHours opening_hours={opening_hours} />
             case 'stories':
                 return <Stories stories={stories} />
+            case 'abouts':
+                return <Abouts abouts={abouts} />
             default:
                 return <Stories stories={stories} />
         }

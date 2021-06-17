@@ -35,3 +35,12 @@ justify-content: ${(p) => (p.justify ? p.justify : "center")};
 margin: ${(p) => (p.margin ? p.margin : "0")};
 width: ${p=>p.width?p.width:'auto'};
 `;
+
+export const ContentContainer = styled.div<FlexibleComponentProps>`
+margin: ${(p) => (p.margin ? p.margin : "1.4rem 0")};
+padding: ${p=>p.padding?p.padding:'1.4rem'};
+display: flex;
+flex-direction: column;
+align-items: ${(p) => (p.align ? p.align : "flex-start")};
+background-color: ${p=>p.color?p.color:p.theme.grey2};
+`

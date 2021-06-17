@@ -23,11 +23,11 @@ export default async function updateStories(req, res){
             }
         }))
 
-        res.status(200).json({status: "Success"})
+        res.status(200).json({status: "updated"})
         
     }catch(e){
         console.error(e)
-        res.status(400).json({status: "Error"})
+        res.status(400).json({status: "error"})
     }
 
 }       

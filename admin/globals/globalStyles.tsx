@@ -75,10 +75,16 @@ const StylesConatiner = createGlobalStyle`
       border: none;
   }
   input, textarea{
+    margin: 1.4rem 0;
+    padding: .9rem 1.4rem;
+    align-self: stretch;
+
       &:active, :focus{
-        outline: none;
-        box-shadow: 0 0 5px ${(p : ThemeProps) => p.theme.primary};
+        outline: 1px solid rgba(0,0,0,.3);
       }
       color: ${(p : ThemeProps) => p.theme.greyDark}
   }
+  input, textarea{
+    
+}
 `;
