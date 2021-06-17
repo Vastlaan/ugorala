@@ -47,7 +47,7 @@ const Navigation = styled.nav`
     top: 0;
     left: 0;
     width: 100vw;
-    padding: .3rem 1.4rem;
+    padding: .9rem 1.4rem;
     background-color: ${p=>p.theme.grey1};
     border-bottom: 1px solid rgba(0,0,0,.3);
     z-index: 99;

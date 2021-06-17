@@ -91,4 +91,5 @@ export const ButtonLink = styled.button<FlexibleComponentProps>`
     border: none;
     font-size: 1.9rem;
     cursor: pointer;
+    color: ${(p)=>p.color?p.color:p.theme.grey4};
 `

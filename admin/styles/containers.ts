@@ -8,10 +8,10 @@ export const SectionNarrow = styled.section<FlexibleComponentProps>`
   margin: ${(p) =>p.margin?p.margin:"0 auto"};
   padding: 1.4rem;
 `
-export const ConatinerNarrow = styled.div<FlexibleComponentProps>`
+export const ContainerNarrow = styled.div<FlexibleComponentProps>`
+  margin: ${(p) =>p.margin?p.margin:"0 auto"};
   padding: ${p=>p.padding?p.padding:'0'};
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 996px;
 `
 export const Line = styled.div<FlexibleComponentProps>`
     width: ${p=>p.width?p.width:'45rem'};

@@ -2,7 +2,7 @@ import {useState, useContext} from 'react'
 import Image from 'next/image'
 import {Context} from '../../globals/stateProvider'
 import Story from './story'
-import { SectionNarrow, Heading3, TextStrong, ButtonPrimary } from "../../styles"
+import { ContainerNarrow, Heading3, TextStrong, ButtonPrimary } from "../../styles"
 
 export default function StoriesComponent({stories}) {
 
@@ -28,11 +28,10 @@ export default function StoriesComponent({stories}) {
             console.error(e)
 
         }
-
     }
 
     return (
-        <SectionNarrow margin='4.7rem auto'>
+        <ContainerNarrow margin='4.7rem 0'>
             <Heading3 margin="2.7rem 0" width="fit-content">Stories</Heading3>
 
             <form onSubmit={updateStories}>
@@ -44,6 +43,6 @@ export default function StoriesComponent({stories}) {
                 })}
                 <ButtonPrimary margin='1.4rem 0'>Update Stories</ButtonPrimary>
             </form>
-        </SectionNarrow>
+        </ContainerNarrow>
     )
 }

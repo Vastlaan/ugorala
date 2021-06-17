@@ -7,16 +7,26 @@ import Stories from '../components/stories'
 
 export default function Page({opening_hours, stories, abouts, user}) {
 
-    const {setUser} = useContext(Context)
+    const {setUser, sectionToRender} = useContext(Context)
 
     useEffect(()=>{
         setUser(user)
     },[])
 
+    function renderSection(section){
+        switch(section){
+            case 'opening_hours':
+                return <OpeningHours opening_hours={opening_hours} />
+            case 'stories':
+                return <Stories stories={stories} />
+            default:
+                return <Stories stories={stories} />
+        }
+    }
+
     return (
         <Layout>    
-            <OpeningHours opening_hours={opening_hours} />
-            <Stories stories={stories} />
+            {renderSection(sectionToRender)}
         </Layout>
     )
 }

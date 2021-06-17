@@ -1,8 +1,7 @@
 import {useState, useContext} from 'react'
 import styled from 'styled-components'
 import {Context} from '../../globals/stateProvider'
-import Row from './row'
-import {SectionNarrow, Heading3, TextStrong, ButtonPrimary} from '../../styles'
+import {ContainerNarrow, Heading3, TextStrong, Text, ButtonPrimary} from '../../styles'
 
 
 export default function OpeningHoursComponent({opening_hours}) {
@@ -25,15 +24,15 @@ export default function OpeningHoursComponent({opening_hours}) {
             })
     
             const data = await response.json()
+
+            // display modal if data.status !== 'error'
         }catch(e){
             console.error(e)
         }
-
-
     }
 
     return (
-        <SectionNarrow margin='4.7rem auto'>
+        <ContainerNarrow margin='4.7rem 0'>
             <Heading3 margin="2.7rem 0" width="fit-content">Opening hours</Heading3>
 
             <Fields>
@@ -43,12 +42,11 @@ export default function OpeningHoursComponent({opening_hours}) {
             </Fields>
 
             <form onSubmit={handleSubmit}>
-
                 {
                     newHours.map((row,i)=>{
                         return(
                             <Fields key={i}>
-                                <input type="text" name={`day-${i}`} id={`day-${i}`} value={row.day} readOnly/>
+                                <TextStrong align='left'>{row.day}</TextStrong>
                                 <input type="text" name={`start-${i}`} id={`start-${i}`} value={row.start} onChange={e=>{
                                     const newState = [...newHours]
                                     const index = newState.findIndex(field=>field.day===row.day)
@@ -67,8 +65,7 @@ export default function OpeningHoursComponent({opening_hours}) {
                 }
                 <ButtonPrimary margin='1.4rem 0'>Update opening hours</ButtonPrimary>
             </form>
-
-        </SectionNarrow>
+        </ContainerNarrow>
     )
 }
 
@@ -77,9 +74,10 @@ const Fields = styled.div`
     grid-template-columns: 1fr 15rem 15rem;
     grid-gap: 1.4rem;
     background-color: ${p=>p.theme.grey2};
+    padding: 1.3rem;
 
     input{
-        margin: 1.4rem;
+        margin: 1.4rem 0;
         padding: .3rem 1.4rem;
         color: ${p=>p.theme.grey4};
     }
