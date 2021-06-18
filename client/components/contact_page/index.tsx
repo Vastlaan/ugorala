@@ -1,6 +1,7 @@
 import {useContext} from 'react'
 import {Context} from '../../store'
-import Story from '../utils/story'
+import Header from '../header'
+import Form from './contact_form'
 
 export default function ContactPageComponent() {
 
@@ -8,12 +9,8 @@ export default function ContactPageComponent() {
     
     return (
         <>
-            {
-            stories.length > 0 && <Story 
-                heading={stories[0].heading}
-                imgUrl={stories[0].imgUrl}
-                paragraphs={stories[0].paragraphs.map(para=>para.text)} />
-            }
+            <Header title='Wij helpen u graag'  body='Stuur ons een bericht en laat ons weten wat we voor u kunnen doen.' image='/img/contact-header-2.jpg' />
+            <Form />
         </>
     )
 }
