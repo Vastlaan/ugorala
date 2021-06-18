@@ -1,6 +1,7 @@
 import {useState, useContext} from 'react'
 import {Context} from '../../globals/stateProvider'
 import Modal from '../modals/confirmation'
+import Gate from '../modals/gate'
 import { ContainerNarrow, Heading3, ButtonPrimary, ContentContainer, TextStrong } from '../../styles'
 
 export default function AboutsComponent({abouts}) {
@@ -9,9 +10,14 @@ export default function AboutsComponent({abouts}) {
 
     const [newAbouts, setNewAbouts] = useState(abouts||[])
     const [displayModal, setDisplayModal] = useState(false)
+    const [displayGate, setDisplayGate] = useState(false)
 
-    async function updateAbouts(e){
+    function handleSubmit(e){
         e.preventDefault()
+        setDisplayGate(true)
+    }
+
+    async function updateAbouts(){
 
         try{
             const response = await fetch('/api/update_abouts', {
@@ -42,7 +48,8 @@ export default function AboutsComponent({abouts}) {
         <ContainerNarrow margin='4.7rem 0'>
             <Heading3 margin="2.7rem 0" width="fit-content">Abouts</Heading3>
 
-            <form onSubmit={updateAbouts}>
+            <form onSubmit={handleSubmit}
+            >
 
                 {newAbouts.map((about, i)=>{
                     return(
@@ -69,7 +76,9 @@ export default function AboutsComponent({abouts}) {
             {
                 displayModal && <Modal setDisplayModal={setDisplayModal} message='Your data has been successfully uploaded!' />
             }
-
+            {
+                displayGate && <Gate setDisplayGate={setDisplayGate} message='Are your sure you want to update Abouts ?' cb={updateAbouts} />
+            }
         </ContainerNarrow>
     )
 }

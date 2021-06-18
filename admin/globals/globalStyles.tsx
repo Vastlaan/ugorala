@@ -35,12 +35,10 @@ const StylesConatiner = createGlobalStyle`
       padding: 0;
       box-sizing: inherit;
       line-height: inherit;
-      ::-moz-scrollbar-width: none;
       font-family: inherit;
       
       
   }
-  ::-webkit-scrollbar{display: none;}
   html{
       font-size: 50%;
       box-sizing: border-box;

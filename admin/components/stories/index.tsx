@@ -2,6 +2,7 @@ import {useState, useContext} from 'react'
 import {Context} from '../../globals/stateProvider'
 import Story from './story'
 import Modal from '../modals/confirmation'
+import Gate from '../modals/gate'
 import { ContainerNarrow, Heading3, ButtonPrimary } from "../../styles"
 
 export default function StoriesComponent({stories}) {
@@ -10,9 +11,14 @@ export default function StoriesComponent({stories}) {
 
     const [newStories, setNewStories] = useState(stories||[])
     const [displayModal, setDisplayModal] = useState(false)
+    const [displayGate, setDisplayGate] = useState(false)
 
-    async function updateStories(e){
+    function handleSubmit(e){
         e.preventDefault()
+        setDisplayGate(true)
+    }
+
+    async function updateStories(){
 
         try{
             const response = await fetch('/api/update_stories', {
@@ -42,7 +48,7 @@ export default function StoriesComponent({stories}) {
         <ContainerNarrow margin='4.7rem 0'>
             <Heading3 margin="2.7rem 0" width="fit-content">Stories</Heading3>
 
-            <form onSubmit={updateStories}>
+            <form onSubmit={handleSubmit}>
 
                 {newStories.map((story, i)=>{
                     return(
@@ -53,6 +59,9 @@ export default function StoriesComponent({stories}) {
             </form>
             {
                 displayModal && <Modal setDisplayModal={setDisplayModal} message='Your data has been successfully uploaded!' />
+            }
+            {
+                displayGate && <Gate setDisplayGate={setDisplayGate} message='Are your sure you want to update Stories?' cb={updateStories} />
             }
         </ContainerNarrow>
     )

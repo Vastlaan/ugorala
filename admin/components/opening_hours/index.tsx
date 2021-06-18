@@ -2,6 +2,7 @@ import {useState, useContext} from 'react'
 import styled from 'styled-components'
 import {Context} from '../../globals/stateProvider'
 import Modal from '../modals/confirmation'
+import Gate from '../modals/gate'
 import {ContainerNarrow, Heading3, TextStrong, Text, ButtonPrimary} from '../../styles'
 
 
@@ -9,12 +10,16 @@ export default function OpeningHoursComponent({opening_hours}) {
 
     const [newHours, setNewHours] = useState(opening_hours||[])
     const [displayModal, setDisplayModal] = useState(false)
+    const [displayGate, setDisplayGate] = useState(false)
 
     const {user} = useContext(Context)
 
-    async function handleSubmit(e){
+    function handleSubmit(e){
         e.preventDefault()
+        setDisplayGate(true)
+    }
 
+    async function updateOpeningHours(){
         try{
             const response = await fetch('/api/update_opening_hours', {
                 method: "POST",
@@ -75,6 +80,9 @@ export default function OpeningHoursComponent({opening_hours}) {
 
             {
                 displayModal && <Modal setDisplayModal={setDisplayModal} message='Your data has been successfully uploaded!' />
+            }
+            {
+                displayGate && <Gate setDisplayGate={setDisplayGate} message='Are your sure you want to update Opening Hours?' cb={updateOpeningHours} />
             }
         </ContainerNarrow>
     )
