@@ -47,6 +47,7 @@ export const ButtonFull = styled.button<FlexibleComponentProps>`
     font-weight: 600;
     letter-spacing: .15rem;
     text-transform: uppercase;
+    width: ${p=>p.width?p.width:'auto'};
 
     box-shadow: 0 .2rem .2rem .2rem rgba(0,0,0,.2);
 

@@ -7,7 +7,7 @@ import {fonts} from './fonts'
 // CONTAINERS
 import {SectionNarrow, ConatinerNarrow, Line, FlexCol, FlexRow} from './containers'
 // TYPOGRAPHY
-import {Heading1, Heading2,Heading3, Heading6, Text, TextStrong} from './typography'  
+import {Heading1, Heading2,Heading3 , Heading4, Heading6, Text, TextStrong, TextBold, TextSmall} from './typography'  
 // BUTTONS
 import {ButtonPrimary,ButtonFull, ButtonStrong} from './buttons'
 
@@ -21,7 +21,7 @@ export {
   // CONTAINERS
   SectionNarrow, ConatinerNarrow, Line, FlexCol, FlexRow,
   // TYPOGRAPHY
-  Heading1, Heading2,Heading3, Heading6,Text, TextStrong,
+  Heading1, Heading2,Heading3 , Heading4, Heading6,Text, TextStrong, TextBold, TextSmall,
   // BUTTONS
   ButtonPrimary,ButtonFull, ButtonStrong,
 }
