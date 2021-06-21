@@ -9,7 +9,7 @@ import Gallery from '../gallery'
 
 export default function LandingPage(){
 
-  const {state:{landing_page:{stories, abouts}}} = useContext(Context)
+  const {state:{stories, abouts}} = useContext(Context)
 
   return (
     <>

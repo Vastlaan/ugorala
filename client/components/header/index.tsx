@@ -37,7 +37,7 @@ const Header = styled.header<FlexibleComponentProps>`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url(${p=>p.url?p.url:'/img/header-1.jpg'});
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.3)),url(${p=>p.url?p.url:'/img/header-1.jpg'});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

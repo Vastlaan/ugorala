@@ -4,11 +4,11 @@ import StateProvider from '../globals/stateProvider'
 
 function App(props) {
 
-    const { Component, pageProps, opening_hours, stories, abouts } = props
+    const { Component, pageProps, opening_hours, stories, abouts, menus } = props
 
     return (
         <>
-            <StateProvider opening_hours={opening_hours} stories={stories} abouts={abouts}>
+            <StateProvider opening_hours={opening_hours} stories={stories} abouts={abouts} menus={menus}>
                 <ThemeProvider>
                     <GlobalStyles />
                     <Component {...pageProps} />
@@ -26,11 +26,14 @@ App.getInitialProps = async (ctx)=>{
       const stories = await storiesJson.json()
       const aboutsJson = await fetch(`${process.env.STRAPI_URL}/abouts?_sort=order:asc`)
       const abouts = await aboutsJson.json()
+      const menusJson = await fetch(`${process.env.STRAPI_URL}/menus?_sort=order:asc`)
+      const menus = await menusJson.json()
     
       return {
           opening_hours,
           stories,
-          abouts
+          abouts,
+          menus
       }
     }catch(e){
       console.error(e)

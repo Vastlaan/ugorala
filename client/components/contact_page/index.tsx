@@ -8,7 +8,7 @@ import Map from './map'
 
 export default function ContactPageComponent() {
 
-    const {state: {landing_page: { stories }}} = useContext(Context)
+    const {state: {stories }} = useContext(Context)
     
     return (
         <>

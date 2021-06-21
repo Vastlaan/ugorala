@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { respond, ButtonFull, Heading1} from '../../../styles'
 import gsap from 'gsap'
@@ -42,7 +43,9 @@ export default function HeaderComponent({headings}) {
             <Content>
                 <Heading1>{headings[headingIndex].split(' ').map((word, i) => <span  key={i} ref={(el=>target.current.push(el))}>{word} </span>)}</Heading1>
                 <ButtonsConatiner>
-                    <ButtonFull margin='1.4rem'>Menukaart</ButtonFull>
+                    <Link href='/menu'>
+                        <ButtonFull margin='1.4rem'>Menukaart</ButtonFull>
+                    </Link>
                     <ButtonFull margin='1.4rem' color='#222'>Tafel reserveren</ButtonFull>
                 </ButtonsConatiner>
             </Content>

@@ -6,7 +6,7 @@ export default function ServicesComponent() {
 
     const {state} = useContext(Context)
 
-    const {landing_page:{opening_hours}} = state
+    const {opening_hours} = state
 
     return (
         <FlexCol align='flex-start'>

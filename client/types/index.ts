@@ -45,11 +45,11 @@ export interface IAction {
 }
 
 export interface IState {
-  landing_page: {
-    opening_hours: IOpeningHours[] | undefined[];
-    stories: any[],
-    abouts: any[]
-  }
+  
+  opening_hours: IOpeningHours[] | undefined[];
+  stories: any[],
+  abouts: any[],
+  menus: any[]
 }
 
 export type IContext = { state: IState; dispatch?: React.Dispatch<IAction>; }

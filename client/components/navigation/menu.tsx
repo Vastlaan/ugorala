@@ -7,7 +7,7 @@ export default function MenuComponent() {
     return (
         <Menu>
             <li>
-                <Link href='/'>
+                <Link href='/menu'>
                     <MenuLink>Menukaart</MenuLink>
                 </Link>
             </li>

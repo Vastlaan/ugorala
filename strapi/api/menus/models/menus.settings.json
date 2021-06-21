@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "name": "menus",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "menu_item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu-item.menu-item"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

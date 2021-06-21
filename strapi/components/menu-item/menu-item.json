@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_menu_item_menu_items",
+  "info": {
+    "name": "menu_item",
+    "icon": "angle-right"
+  },
+  "options": {},
+  "attributes": {
+    "price": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}
