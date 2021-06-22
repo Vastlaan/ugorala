@@ -49,7 +49,8 @@ export interface IState {
   opening_hours: IOpeningHours[] | undefined[];
   stories: any[],
   abouts: any[],
-  menus: any[]
+  menus: any[],
+  galleries: any[]
 }
 
 export type IContext = { state: IState; dispatch?: React.Dispatch<IAction>; }

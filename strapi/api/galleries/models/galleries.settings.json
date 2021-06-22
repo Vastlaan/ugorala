@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "galleries",
+  "info": {
+    "name": "galleries",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "images.images"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

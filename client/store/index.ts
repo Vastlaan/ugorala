@@ -6,7 +6,8 @@ export const initialState : IState= {
     opening_hours: [],
     stories: [],
     abouts: [],
-    menus: []
+    menus: [],
+    galleries: []
 }
 
 export const reducer = (state: IState, { type, payload }: IAction)  : IState =>{

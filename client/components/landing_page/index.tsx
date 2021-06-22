@@ -9,7 +9,15 @@ import Gallery from '../gallery'
 
 export default function LandingPage(){
 
-  const {state:{stories, abouts}} = useContext(Context)
+  const {state:{stories, abouts, galleries}} = useContext(Context)
+
+  const landingGallery = galleries.find(gal=>gal.name==='landing')
+
+  let imagesUrls = ['/img/catering.jpg', '/img/vodka.jpg', '/img/liquor.jpg', '/img/restaurant.jpg', '/img/roast.jpg', '/img/liquor.jpg', '/img/vodka.jpg', '/img/roast.jpg']
+
+  if(landingGallery){
+    imagesUrls = landingGallery.images.map(image=>image.url)
+  }
 
   return (
     <>
@@ -45,7 +53,7 @@ export default function LandingPage(){
           heading='Aanbevolen gerechten' 
         />
 
-        <Gallery imagesUrls={ ['/img/catering.jpg', '/img/vodka.jpg', '/img/liquor.jpg', '/img/restaurant.jpg', '/img/roast.jpg', '/img/liquor.jpg', '/img/vodka.jpg', '/img/roast.jpg'] } />
+        <Gallery imagesUrls={ imagesUrls } />
 
         {
         stories.length > 1 && <Story 
