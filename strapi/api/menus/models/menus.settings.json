@@ -22,6 +22,9 @@
     },
     "order": {
       "type": "integer"
+    },
+    "area": {
+      "type": "string"
     }
   }
 }

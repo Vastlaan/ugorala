@@ -1,12 +1,11 @@
 import styled from 'styled-components'
-import { respond, SectionNarrow, FlexRow,  TextStrong, TextBold} from '../../../styles'
+import { respond, SectionNarrow, TextStrong, TextBold} from '../../../styles'
 import {FaMapMarked, FaEnvelope, FaPhoneAlt}  from 'react-icons/fa'
 
 export default function InfoComponent() {
     return (
         <SectionNarrow>
-                <FlexRow margin='0 0 4.7rem 0'>
-
+                <DetailsContainer>
                     <Detail>
                         <Icon>
                             <FaPhoneAlt/>
@@ -28,7 +27,7 @@ export default function InfoComponent() {
                         <TextStrong>Leidsevaart 171</TextStrong>
                         <TextStrong>2211 WE Noordwijkerhout</TextStrong>
                     </Detail>
-                </FlexRow>
+                </DetailsContainer>
         </SectionNarrow>
     )
 }
@@ -41,7 +40,14 @@ const Icon = styled.div`
     margin-bottom: 1.4rem;
     
 `
+const DetailsContainer = styled.div`
+    margin-bottom: 4.7rem;
+    display: flex;
+    flex-direction: column;
 
+    ${()=>respond('m', 'flex-direction: row; justify-content: center;')}
+
+`
 const Detail = styled.div`
     min-width: 25rem;
     display: flex;
@@ -49,7 +55,7 @@ const Detail = styled.div`
     align-items: center;
     justify-content: center;
     padding: 2.7rem;
-    margin: 0 1.4rem;
+    margin: 1.4rem;
     background-color: ${p=>p.theme.grey2};
     box-shadow: 0 .6rem 1rem rgba(0,0,0,.3);
 `

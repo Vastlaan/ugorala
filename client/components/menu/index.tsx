@@ -1,37 +1,41 @@
+import { withTheme } from 'styled-components'
 import {Context} from '../../store'
 import { useContext } from 'react'
 import styled from 'styled-components'
-import { SectionNarrow, Heading2, Heading3, FlexCol, TextStrong } from '../../styles'
+import { respond, SectionNarrow, Heading2, Heading3, FlexCol, TextStrong, TextSmall } from '../../styles'
+import { FlexibleComponentProps } from '../../types'
 
-export default function MenuComponent() {
+function MenuComponent({theme}) {
 
     const {state} = useContext(Context)
     const {menus} = state
 
+    console.log(menus)
+
     return (
         <SectionNarrow>
             <HeadingContainer>
-                <Heading2 color='#222'>Menukaart</Heading2>
+                <Heading2 color={theme.black}>Menukaart</Heading2>
             </HeadingContainer>
             <Grid>
                 {
-                    menus.map(section=>{
+                    menus.map((section, i)=>{
+                        
                         return(
-                            <FlexCol key={section.id} align='flex-start'>
-                                    <Heading3 margin='1.4rem 0 2.7rem 0'>{section.heading}</Heading3>
+                            <Menu key={section.id} color={i===1 || i ===3 ? theme.black:''} area={section.area}>
+                                    <Heading3 color={i===1 || i ===3 ? theme.grey1:''} margin='1.4rem 0 2.7rem 0'>{section.heading}</Heading3>
                                     {section.menu_item.map(item=>{
                                         return(
                                             <Figure key={item.id}>
-                                                <TextStrong>{item.name}</TextStrong>
-                                                <TextStrong>&euro;{item.price}</TextStrong>
+                                                <FlexCol align='flex-start'>
+                                                    <TextStrong color={i===1 || i ===3 ? theme.grey1:''}>{item.name}</TextStrong>
+                                                    {item.description && <TextSmall color={i===1 || i ===3 ? theme.secondary:''} width='30rem' align='left'>{item.description}</TextSmall>}
+                                                </FlexCol>
+                                                <TextStrong color={i===1 || i ===3 ? theme.grey1:''}>&euro;{item.price}</TextStrong>
                                             </Figure>
                                         )
                                     })}
-                                    <Figure>
-                                        <TextStrong>Salade met gegrilde kipfilet</TextStrong>
-                                        <TextStrong>&euro;7,00</TextStrong>
-                                    </Figure>
-                            </FlexCol>
+                            </Menu>
                         )
                     })
                 }
@@ -39,11 +43,22 @@ export default function MenuComponent() {
         </SectionNarrow>
     )
 }
-
+export default withTheme(MenuComponent)
 const Grid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2.7rem;
+
+    display: flex;
+    flex-direction: column;
+
+    ${()=>respond('m',`
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "voor hoofd"
+            "dessert hoofd"
+            "drank hoofd"
+            "drank special";
+        grid-gap: 4.7rem;
+    `)}
 `
 const HeadingContainer = styled.div`
     max-width: 25rem;
@@ -64,6 +79,14 @@ const HeadingContainer = styled.div`
         height: 110%;
         border: 3px solid ${p=>p.theme.secondary};
     }
+`
+const Menu = styled.div<FlexibleComponentProps>`
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: ${p=>p.color?p.color:'transparent'};
+    grid-area: ${p=>p.area};
 `
 
 const Figure = styled.div`
