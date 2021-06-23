@@ -17,9 +17,35 @@ spec:
           image: noirfatale/ugorala-admin
           env:
             - name: STRAPI_URL
-              value: http://strapi-srv:1337
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: STRAPI_URL
             - name: SESSION_SECRET
-              value: LSAJWEIJ02UU0RU0R0UJEWOFJ23039280AQfwqf234
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: SESSION_SECRET
+            - name: AWS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: AWS_SECRET_KEY
+            - name: AWS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: AWS_ACCESS_KEY
+            - name: AWS_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: AWS_REGION
+            - name: BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: BUCKET_NAME
             
 ---
 apiVersion: v1
