@@ -1,18 +1,10 @@
 import Layout from '../layouts/main'
-import Header from '../components/header'
-import Menu from '../components/menu'
-import Intersection from '../components/utils/intersection'
+import Menu from '../components/menu_page'
 
 export default function MenuPage() {
     return (
-        <Layout>
-            <Header 
-                title='Gerechten uit het hart op je bord ' 
-                body='Wij volgen deze principes in onze keuken. Met als resultaat: gezonde kwaliteit gerechten die de authentieke smaak van Polen waarborgen.' 
-                image='/img/header-menu.jpg' 
-            />
+        <Layout>      
             <Menu />
-            {/* <Intersection heading='Menukaart' /> */}
         </Layout>
     )
 }

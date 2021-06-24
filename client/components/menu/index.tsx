@@ -2,20 +2,21 @@ import { withTheme } from 'styled-components'
 import {Context} from '../../store'
 import { useContext } from 'react'
 import styled from 'styled-components'
-import { respond, SectionNarrow, Heading2, Heading3, FlexCol, TextStrong, TextSmall } from '../../styles'
+import { respond, SectionNarrow, HeadingContainer, Heading2, Heading3, FlexCol, TextStrong, TextSmall } from '../../styles'
 import { FlexibleComponentProps } from '../../types'
 
-function MenuComponent({theme}) {
+interface MenuProps{
+    menus: any,
+    theme: any,
+    heading: string;
+}
 
-    const {state} = useContext(Context)
-    const {menus} = state
-
-    console.log(menus)
+function MenuComponent({theme, menus, heading}: MenuProps) {
 
     return (
         <SectionNarrow margin='1.4rem auto 4.7rem auto'>
             <HeadingContainer>
-                <Heading2 color={theme.black}>Menukaart</Heading2>
+                <Heading2 color={theme.black}>{heading}</Heading2>
             </HeadingContainer>
             <Grid>
                 {
@@ -60,26 +61,7 @@ const Grid = styled.div`
         grid-gap: 4.7rem;
     `)}
 `
-const HeadingContainer = styled.div`
-    max-width: 25rem;
-    margin: 2.7rem 0;
-    padding: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 3px solid ${p=>p.theme.primary};
-    position: relative;
 
-    &::before{
-        content: "";
-        position: absolute;
-        bottom: .9rem;
-        left: .9rem;
-        width: 110%;
-        height: 110%;
-        border: 3px solid ${p=>p.theme.secondary};
-    }
-`
 const Menu = styled.div<FlexibleComponentProps>`
     padding: 1.4rem;
     display: flex;
