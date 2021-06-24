@@ -11,21 +11,21 @@ export default function InfoComponent() {
                             <FaPhoneAlt/>
                         </Icon>
                         <TextStrong>Bel Ons:</TextStrong>
-                        <TextBold><a href="tel:0031611330814">(+31) (0) 611 33 08 14</a></TextBold>
+                        <TextBold color='#8c271e'><a href="tel:0031611330814">(+31) (0) 611 33 08 14</a></TextBold>
                     </Detail>
                     <Detail>
                         <Icon>
                             <FaEnvelope/>
                         </Icon>
                         <TextStrong>Mail Ons:</TextStrong>
-                        <TextBold><a href="mailto:info@ugorala.nl">info@ugorala.nl</a></TextBold>
+                        <TextBold color='#8c271e'><a href="mailto:info@ugorala.nl">info@ugorala.nl</a></TextBold>
                     </Detail>
                     <Detail>
                         <Icon>
                             <FaMapMarked/>
                         </Icon>
                         <TextStrong>Leidsevaart 171</TextStrong>
-                        <TextStrong>2211 WE Noordwijkerhout</TextStrong>
+                        <TextBold color='#8c271e'>2211 WE Noordwijkerhout</TextBold>
                     </Detail>
                 </DetailsContainer>
         </SectionNarrow>

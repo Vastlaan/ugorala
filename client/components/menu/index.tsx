@@ -13,7 +13,7 @@ function MenuComponent({theme}) {
     console.log(menus)
 
     return (
-        <SectionNarrow>
+        <SectionNarrow margin='1.4rem auto 4.7rem auto'>
             <HeadingContainer>
                 <Heading2 color={theme.black}>Menukaart</Heading2>
             </HeadingContainer>
@@ -28,7 +28,7 @@ function MenuComponent({theme}) {
                                         return(
                                             <Figure key={item.id}>
                                                 <FlexCol align='flex-start'>
-                                                    <TextStrong color={i===1 || i ===3 ? theme.grey1:''}>{item.name}</TextStrong>
+                                                    <TextStrong align='left' color={i===1 || i ===3 ? theme.grey1:''}>{item.name}</TextStrong>
                                                     {item.description && <TextSmall color={i===1 || i ===3 ? theme.secondary:''} width='30rem' align='left'>{item.description}</TextSmall>}
                                                 </FlexCol>
                                                 <TextStrong color={i===1 || i ===3 ? theme.grey1:''}>&euro;{item.price}</TextStrong>
