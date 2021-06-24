@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import {fonts, respond} from '../../styles'
 import { FlexibleComponentProps } from '../../types'
+import {FaChevronDown, FaChevronRight} from 'react-icons/fa'
 
 export default function MenuComponent() {
     return (
@@ -12,9 +13,32 @@ export default function MenuComponent() {
                 </Link>
             </li>
             <li>
-                <Link href='/'>
-                    <MenuLink>Ons Aanbod</MenuLink>
-                </Link>
+                <MenuNested>
+                    <p>
+                        Ons Aanbod
+                        <FaChevronDown/>
+                    </p>
+                    <ul>
+                        <Link href='/catering'>
+                            <li>
+                                <FaChevronRight/>
+                                Catering
+                            </li>
+                        </Link>
+                        <Link href='/distilleerderij'>
+                            <li>
+                                <FaChevronRight/>
+                                Distilleerderij
+                            </li>
+                        </Link>
+                        <Link href='/vleeswaren'>
+                            <li>
+                                <FaChevronRight/>
+                                Vleeswaren
+                            </li>
+                        </Link>
+                    </ul>
+                </MenuNested>
             </li>
             <li>
                 <Link href='/'>
@@ -75,4 +99,69 @@ const MenuLink = styled.button<FlexibleComponentProps>`
         }
     }
 
+`
+
+const MenuNested = styled.div<FlexibleComponentProps>`
+
+    position: relative;
+    margin: ${p=>p.margin?p.margin: '0 1.4rem'};
+    padding: .9rem 0;
+    ${p=>respond('m', `margin: ${p.margin?p.margin: '0 1.4rem'};`)}
+
+
+    &:hover{
+
+        ul{
+            top: 100%;
+        }
+    }
+    p{
+        color: ${p=>p.theme.black};
+        font-size: 1.9rem;
+        font-family: ${fonts.heading};
+        letter-spacing: .15rem;
+        text-transform: uppercase;
+
+        svg{
+            margin-left: .9rem;
+            color: ${p=>p.theme.primary};
+        }
+    }
+    ul{
+
+        position: static;
+        top: -500%;
+        left: -1.4rem;
+        width: 150%;
+        padding: 1.4rem 1.4rem 0 0;
+        list-style: none;
+        background-color: ${p=>p.theme.white};
+        transition: all .3s;
+
+        ${p=>respond('m', `position: absolute;padding: 1.4rem;`)}
+
+        li{
+            margin: 1.4rem 0;
+            color: ${p=>p.theme.black};
+            font-size: 1.9rem;
+            font-family: ${fonts.heading};
+            letter-spacing: .15rem;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            svg{
+                margin-right: .9rem;
+                color: ${p=>p.theme.primary};
+                transition: all .3s;
+            }
+
+            &:hover{
+                svg{
+                    margin-left: .6rem;
+                    margin-right: .3rem;
+                }
+            }
+        }
+
+    }
 `
