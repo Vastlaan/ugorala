@@ -71,7 +71,7 @@ const MenuLink = styled.button<FlexibleComponentProps>`
     margin: ${p=>p.margin?p.margin: '1.4rem'};
     padding: .9rem 0;
     border: none;
-    background-color: transparent;
+    background-color: ${p=>p.theme.white};
     color: ${p=>p.theme.black};
     font-size: 1.9rem;
     font-family: ${fonts.heading};
@@ -104,6 +104,7 @@ const MenuLink = styled.button<FlexibleComponentProps>`
 const MenuNested = styled.div<FlexibleComponentProps>`
 
     position: relative;
+    background-color: ${p=>p.theme.white};
     margin: ${p=>p.margin?p.margin: '0 1.4rem'};
     padding: .9rem 0;
     ${p=>respond('m', `margin: ${p.margin?p.margin: '0 1.4rem'};`)}
@@ -136,7 +137,7 @@ const MenuNested = styled.div<FlexibleComponentProps>`
         padding: 1.4rem 1.4rem 0 0;
         list-style: none;
         background-color: ${p=>p.theme.white};
-        transition: all .3s;
+        transition: top 0s;
 
         ${p=>respond('m', `position: absolute;padding: 1.4rem;`)}
 

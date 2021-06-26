@@ -25,6 +25,7 @@ export interface FlexibleComponentProps{
   delay?: string;
   url?: string;
   area?: string;
+  wrap?: string;
 }
 
 export interface IOpeningHours{
@@ -54,3 +55,9 @@ export interface IState {
 }
 
 export type IContext = { state: IState; dispatch?: React.Dispatch<IAction>; }
+
+export interface IChosenDate{
+  day: number;
+  month: number;
+  year: number;
+}

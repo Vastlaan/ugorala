@@ -34,6 +34,7 @@ align-items: ${(p) => (p.align ? p.align : "center")};
 justify-content: ${(p) => (p.justify ? p.justify : "center")};
 margin: ${(p) => (p.margin ? p.margin : "0")};
 width: ${p=>p.width?p.width:'auto'};
+flex-wrap: ${p=>p.wrap?p.wrap:'no-wrap'};
 `;
 
 export const HeadingContainer = styled.div`

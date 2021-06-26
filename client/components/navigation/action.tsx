@@ -5,7 +5,7 @@ import {ButtonPrimary} from '../../styles'
 export default function ActionComponent() {
     return (
         <Action>
-            <Link href='/'>
+            <Link href='/reservations'>
                 <ButtonPrimary>
                     Reserveren
                 </ButtonPrimary>

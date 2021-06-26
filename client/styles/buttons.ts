@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import {fonts} from './fonts'
 import {FlexibleComponentProps} from '../types'
 
-export const ButtonPrimary = styled.button`
+export const ButtonPrimary= styled.button<FlexibleComponentProps> `
+    margin: ${p=>p.margin?p.margin:'0'};
     padding: .9rem 1.4rem;
     background-color: transparent;
     border: 2px solid ${p=>p.theme.primary};
@@ -12,6 +13,7 @@ export const ButtonPrimary = styled.button`
     font-weight: 600;
     letter-spacing: .15rem;
     text-transform: uppercase;
+    grid-area: ${p=>p.area?p.area:''};
 
     transition: all .3s;
     position: relative;
