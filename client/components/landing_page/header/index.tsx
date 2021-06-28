@@ -8,7 +8,7 @@ interface HeaderProps{
     headings: string[];
 }
 
-export default function HeaderComponent({headings}) {
+export default function HeaderComponent({headings}:HeaderProps) {
 
     const [headingIndex, setHeadingIndex] = useState(0) // 0 or 1
     const target = useRef(new Array())
@@ -46,7 +46,9 @@ export default function HeaderComponent({headings}) {
                     <Link href='/menu'>
                         <ButtonFull margin='1.4rem'>Menukaart</ButtonFull>
                     </Link>
-                    <ButtonFull margin='1.4rem' color='#222'>Tafel reserveren</ButtonFull>
+                    <Link href="/reservations">
+                        <ButtonFull margin='1.4rem' color='#222'>Tafel reserveren</ButtonFull>
+                    </Link>
                 </ButtonsConatiner>
             </Content>
         </Header>

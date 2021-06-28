@@ -20,8 +20,8 @@ const data = {
     list: [
         {link: '/restaurant', name: 'Restaurant'},
         {link: '/catering', name: 'Catering'},
-        {link: '/destillerderij', name: 'Destillerderij'},
-        {link: '/vleeswaren', name: 'Vleeswaren'}
+        {link: '/distillery', name: 'Destillerderij'},
+        {link: '/meats', name: 'Vleeswaren'}
     ]
     
 }

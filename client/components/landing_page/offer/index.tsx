@@ -13,8 +13,9 @@ export default function OfferComponent() {
                                 key={`${category.label}-${i}`}
                                 label={category.label}
                                 btn={category.btn}
+                                btnLink={category.btnLink}
                                 area={category.area}
-                                url={category.url}
+                                imageUrl={category.imageUrl}
                             />
                         )
                     })
@@ -53,26 +54,30 @@ const data = [
     {
         label: 'Restaurant',
         btn: 'Menukaart',
+        btnLink: '/menu',
         area: 'res',
-        url: '/img/restaurant.jpg'
+        imageUrl: '/img/restaurant.jpg'
     },
     {
         label: 'Distilleerderij',
         btn: 'Distilleerderij',
+        btnLink: '/distillery',
         area: 'vod',
-        url: '/img/vodka.jpg'
+        imageUrl: '/img/vodka.jpg'
     },
     {
         label: 'Catering',
         btn: 'Catering',
+        btnLink: '/catering',
         area: 'cat',
-        url: '/img/catering.jpg'
+        imageUrl: '/img/catering.jpg'
     },
     {
         label: 'Vleeswaren',
         btn: 'Vleeswaren',
+        btnLink: '/meats',
         area: 'sau',
-        url: '/img/sausages.jpg'
+        imageUrl: '/img/sausages.jpg'
     },
 
 ]

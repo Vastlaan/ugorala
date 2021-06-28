@@ -1,19 +1,23 @@
 import styled from "styled-components"
+import Link from 'next/link'
 import { respond, SectionNarrow, ButtonFull } from "../../../styles"
 import {FlexibleComponentProps} from '../../../types'
 
 interface CategoryProps{
     label: string;
     btn: string;
+    btnLink: string;
     area: string;
-    url: string;
+    imageUrl: string;
 }
 
-export default function CategoryComponent({label,btn,area, url} : CategoryProps) {
+export default function CategoryComponent({label,btn,btnLink,area, imageUrl} : CategoryProps) {
     return (
-        <Category url={url} area={area}>
+        <Category url={imageUrl} area={area}>
             <Label>{label}</Label>
-            <Button>{btn}</Button>
+            <Link href={btnLink}>
+                <Button>{btn}</Button>
+            </Link>
         </Category>
     )
 }

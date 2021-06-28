@@ -49,13 +49,15 @@ const DetailsContainer = styled.div`
 
 `
 const Detail = styled.div`
-    min-width: 25rem;
+    min-width: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2.7rem;
     margin: 1.4rem;
-    background-color: ${p=>p.theme.grey2};
-    box-shadow: 0 .6rem 1rem rgba(0,0,0,.3);
+    //background-image: linear-gradient(to right, ${p=>p.theme.primary} 5%, ${p=>p.theme.white} 5%);
+    //background-color: ${p=>p.theme.black};
+    //box-shadow: 0 .6rem 1rem rgba(0,0,0,.3);
+    border-left: 2px solid ${p=>p.theme.primary};
 `

@@ -25,13 +25,13 @@ export default function MenuComponent() {
                                 Catering
                             </li>
                         </Link>
-                        <Link href='/distilleerderij'>
+                        <Link href='/distillery'>
                             <li>
                                 <FaChevronRight/>
                                 Distilleerderij
                             </li>
                         </Link>
-                        <Link href='/vleeswaren'>
+                        <Link href='/meats'>
                             <li>
                                 <FaChevronRight/>
                                 Vleeswaren
@@ -41,7 +41,7 @@ export default function MenuComponent() {
                 </MenuNested>
             </li>
             <li>
-                <Link href='/'>
+                <Link href='/about'>
                     <MenuLink>Over Ons</MenuLink>
                 </Link>
             </li>
