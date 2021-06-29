@@ -147,3 +147,12 @@ export const TextSmall = styled.p<FlexibleComponentProps>`
   max-width: ${(p)=>p.width?p.width:'65rem'};
   text-align: ${p=>p.align?p.align: 'center'}
 `
+export const TextMini = styled.p<FlexibleComponentProps>`
+  margin: ${p=>p.margin?p.margin:'0'};
+  font-size: 1.2rem;
+  font-weight:300;
+  color: ${(p)=>p.color?p.color:p.theme.grey4};
+  letter-spacing: .15rem;
+  max-width: ${(p)=>p.width?p.width:'65rem'};
+  text-align: ${p=>p.align?p.align: 'center'}
+`
