@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import ErrorMessage from '../../utils/errorMessage'
+import renderErrors from '../../../lib/renderErrors'
+import SuccessModal from '../../modals/success'
 import { ConatinerNarrow, Heading3, TextSmall, ButtonFull } from '../../../styles'
 
 interface DisclaimerStyleProps{
@@ -14,6 +15,7 @@ export default function ContactForm() {
     const [message, setMessage] = useState('')
     const [selected, setSelected] = useState(false)
     const [errors, setErrors] = useState([])
+    const [displayModal, setDisplayModal] = useState(false)
 
     async function handleSubmit(e){
         e.preventDefault()
@@ -36,19 +38,12 @@ export default function ContactForm() {
                 return setErrors(data.errors)
             }
 
-            console.log(data)
+            // display modal success
+            setDisplayModal(true)
+            
         }catch(e){
             console.error(e)
         }
-    }
-
-    function renderErrors(errors, field){
-        const existingError = errors.find(err=>err.param===field)
-
-        if(existingError){
-            return <ErrorMessage message={existingError.msg} />
-        }
-        return null
     }
 
     return (
@@ -92,6 +87,7 @@ export default function ContactForm() {
                     </Form>
                 </FormContainer>
             </ConatinerNarrow>
+            {displayModal && <SuccessModal close={setDisplayModal} message='We hebben uw bericht in goede orde ontvangen! We sterven ernaar om zo spoedig mogelijk contact met u te nemen.' />}
         </Section>
     )
 }

@@ -7,7 +7,7 @@ import PersonalDetails from './personal_details'
 import Hour from './hour'
 import { respond, SectionNarrow, HeadingContainer, Heading2, ButtonPrimary} from "../../../styles"
 import { IChosenDate } from '../../../types'
-import ErrorMessage from '../../utils/errorMessage'
+import SuccessModal from '../../modals/success'
 
 
 export default function ReservationComponent() {
@@ -19,6 +19,7 @@ export default function ReservationComponent() {
     const [hour, setHour] = useState('')
     const [chosenDate, setChosenDate] = useState<IChosenDate>()
     const [date, setDate] = useState(DateTime.now())
+    const [displayModal, setDisplayModal] = useState(false)
     const [errors, setErrors] = useState([])
 
     async function handleReservation(e){
@@ -50,7 +51,7 @@ export default function ReservationComponent() {
             }
 
             // display successful modal
-            console.log(data)
+            setDisplayModal(true)
 
         }catch(e){
             console.error(e)
@@ -73,6 +74,7 @@ export default function ReservationComponent() {
 
                 <ButtonPrimary margin="2.7rem 0" area='btn' type='submit'>Reserveren</ButtonPrimary>
             </GridForm>
+            {displayModal && <SuccessModal close={setDisplayModal} message='We hebben uw reservatie sucesvol ontvangen! U krijgt bevestiging via email' />}
         </SectionNarrow>
     )
 }
