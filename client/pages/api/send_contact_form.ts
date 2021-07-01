@@ -25,7 +25,7 @@ export default async function handler(req, res){
         res.status(200).json({status: 'success'})
     }catch(e){
         console.error(e)
-        res.status(400).json({status: 'error', errors: [{param: 'message', msg:"Ups, something went wrong on server side. Please try again later."}]})
+        res.status(500).json({status: 'error', errors: [{param: 'message', msg:"Ups, something went wrong on server side. Please try again later."}]})
     }
 
 }

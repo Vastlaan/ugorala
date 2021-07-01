@@ -1,25 +1,35 @@
 import { Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
 import { Heading6, FlexRow } from '../../../styles'
+import renderErrors from '../../../lib/renderErrors'
 
 const HOURS = ['14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00']
 
 interface HoursProps{
     hour: string;
     setHour: Dispatch<SetStateAction<string>>;
+    errors: any[]
 }
 
-export default function HoursComponent({setHour, hour}:HoursProps) {
+export default function HoursComponent({setHour, hour, errors}:HoursProps) {
     return (
         <Hour>
             <Heading6>Tijd:</Heading6>
             <FlexRow wrap='wrap' justify='flex-start'>
                 {HOURS.map(h=>{
                     return(
-                        <Time type='button'  key={`time-${h}`} onClick={(e)=>setHour(h)} color={hour===h?'#8c271e':''}>{h}</Time>
+                        <Time 
+                            type='button'  
+                            key={`time-${h}`} 
+                            onClick={(e)=>{
+                                setHour(h)
+                            }} 
+                            color={hour===h?'#8c271e':''}
+                        >{h}</Time>
                     )
                 })}
             </FlexRow>
+            {errors.length > 0 && renderErrors(errors, 'hour') }
         </Hour>
     )
 }

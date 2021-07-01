@@ -2,15 +2,17 @@ import { Dispatch, SetStateAction} from 'react'
 import styled from 'styled-components'
 import {Heading6, FlexRow, } from "../../../styles"
 import {FlexibleComponentProps} from '../../../types'
+import renderErrors from '../../../lib/renderErrors'
 
 interface PersonsProps{
     persons: number;
-    setPersons: Dispatch<SetStateAction<number>>
+    setPersons: Dispatch<SetStateAction<number>>;
+    errors: any[]
 }
 
 const PERSONS_CHOICE = [1,2,3,4,5,6]
 
-export default function PersonsComponent({persons, setPersons}: PersonsProps ) {
+export default function PersonsComponent({persons, setPersons, errors}: PersonsProps ) {
     return (
         <Person>
             <Heading6>Hoeveel personen:</Heading6>
@@ -21,6 +23,7 @@ export default function PersonsComponent({persons, setPersons}: PersonsProps ) {
                     )
                 })}
             </FlexRow>
+            {errors.length > 0 && renderErrors(errors, 'persons') }
         </Person>
     )
 }

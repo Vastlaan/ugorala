@@ -4,15 +4,17 @@ import styled from 'styled-components'
 import { fonts, Heading6 } from '../../../styles'
 import { WEEK_DAYS } from '../../../lib/weekdays'
 import {FlexibleComponentProps, IChosenDate} from '../../../types'
+import renderErrors from '../../../lib/renderErrors'
 
 interface CalendarProps{
     date: any;
     setDate: Dispatch<any>;
     chosenDate: IChosenDate;
     setChosenDate: Dispatch<SetStateAction<IChosenDate>>
+    errors: any[]
 }
 
-export default function CalendarComponent({date, setDate, chosenDate, setChosenDate}:CalendarProps) {
+export default function CalendarComponent({date, setDate, chosenDate, setChosenDate, errors}:CalendarProps) {
 
     function renderDays(){
         const startDay = date.startOf('month').weekday      
@@ -60,6 +62,7 @@ export default function CalendarComponent({date, setDate, chosenDate, setChosenD
             {WEEK_DAYS.map((weekday,i)=><Weekday color={weekday==="Maandag"?"#aaa":""} key={`weekday-${weekday}`}>{weekday.substring(0,2)}</Weekday>)}
             {renderDays()}
           </Grid>
+          {errors.length > 0 && renderErrors(errors, 'chosenDate') }
         </Calendar>
     )
 }

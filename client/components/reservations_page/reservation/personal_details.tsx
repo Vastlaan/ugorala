@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction} from 'react'
 import styled from 'styled-components'
 import {Heading6,fonts} from '../../../styles'
+import renderErrors from '../../../lib/renderErrors'
 
 interface PersonalDetailsProps{
     name: string;
@@ -9,9 +10,10 @@ interface PersonalDetailsProps{
     setEmail: Dispatch<SetStateAction<string>>;
     phone: string;
     setPhone: Dispatch<SetStateAction<string>>;
+    errors: any[]
 }
 
-export default function PersonalDetailsComponent({name, setName, email, setEmail, phone, setPhone}: PersonalDetailsProps) {
+export default function PersonalDetailsComponent({name, setName, email, setEmail, phone, setPhone, errors}: PersonalDetailsProps) {
 
     return (
         <PersonalDetails>
@@ -19,14 +21,17 @@ export default function PersonalDetailsComponent({name, setName, email, setEmail
             <Field>
                 <label htmlFor="name">Full Name:</label>
                 <input type="text" name='name' id="reservation_name" value={name} onChange={e=>setName(e.target.value)} />
+                {errors.length > 0 && renderErrors(errors, 'name') }
             </Field>
             <Field>
                 <label htmlFor="email">E-mail:</label>
                 <input type="email" name='email' id="reservation_email" value={email} onChange={e=>setEmail(e.target.value)} />
+                {errors.length > 0 && renderErrors(errors, 'email') }
             </Field>
             <Field>
                 <label htmlFor="phone">Phone:</label>
                 <input type="tel" name='phone' id="reservation_phone" value={phone} onChange={e=>setPhone(e.target.value)} />
+                {errors.length > 0 && renderErrors(errors, 'phone') }
             </Field>
         </PersonalDetails>
 )
