@@ -44,6 +44,8 @@ const DetailsContainer = styled.div`
     margin-bottom: 4.7rem;
     display: flex;
     flex-direction: column;
+    background-color: ${p=>p.theme.grey1};
+    box-shadow: 0 0rem 1rem rgba(0,0,0,.3);
 
     ${()=>respond('m', 'flex-direction: row; justify-content: center;')}
 
@@ -56,8 +58,5 @@ const Detail = styled.div`
     justify-content: center;
     padding: 2.7rem;
     margin: 1.4rem;
-    //background-image: linear-gradient(to right, ${p=>p.theme.primary} 5%, ${p=>p.theme.white} 5%);
-    //background-color: ${p=>p.theme.black};
-    //box-shadow: 0 .6rem 1rem rgba(0,0,0,.3);
-    border-left: 2px solid ${p=>p.theme.primary};
+    //border-left: 2px solid ${p=>p.theme.primary};
 `

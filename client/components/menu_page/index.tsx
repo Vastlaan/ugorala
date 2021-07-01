@@ -4,6 +4,7 @@ import Header from '../header'
 import Menu from '../menu'
 import Gallery from '../gallery'
 import Intersection from '../utils/intersection'
+import Info from '../contact_page/info'
 
 export default function MenuComponent() {
 
@@ -27,9 +28,11 @@ export default function MenuComponent() {
             <Menu menus={menus} heading='Menukaart'/>
             <Intersection 
                 heading={`Gallerij`} 
-                text={`Fotos van sommige van onze gerechten`}
+                text={`Aanbevolen gerechten`}
             />
             <Gallery imagesUrls={imagesUrls} />
+            <Intersection heading='Contact u Górala' />
+            <Info />
         </>
     )
 }

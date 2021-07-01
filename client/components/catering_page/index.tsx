@@ -4,6 +4,7 @@ import Header from '../header'
 import Intersection from '../utils/intersection'
 import Menu from '../menu'
 import Gallery from '../gallery'
+import Info from '../contact_page/info'
 
 export default function CateringComponent() {
 
@@ -30,6 +31,8 @@ export default function CateringComponent() {
                 text={`Fotos van sommige van onze gerechten`}
             />
             <Gallery imagesUrls={imagesUrls} />
+            <Intersection heading='Contact u Górala' />
+            <Info />
         </>
     )
 }
