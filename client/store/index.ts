@@ -7,6 +7,7 @@ export const initialState : IState= {
     stories: [],
     abouts: [],
     menus: [],
+    cateringmenus: [],
     galleries: []
 }
 

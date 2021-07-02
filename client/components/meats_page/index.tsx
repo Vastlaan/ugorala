@@ -7,23 +7,23 @@ import Cards from './cards'
 
 export default function DistilleryComponent() {
 
-    const {state: { stories, galleries }} = useContext(Context)
+    const {state: { stories, galleries, abouts}} = useContext(Context)
 
-    const landingGallery = galleries.find(gal=>gal.name==='landing')
+    const gallery = galleries.find(gal=>gal.name==='sausages')
 
     let imagesUrls = ['/img/catering.jpg', '/img/vodka.jpg', '/img/liquor.jpg', '/img/restaurant.jpg', '/img/roast.jpg', '/img/liquor.jpg', '/img/vodka.jpg', '/img/roast.jpg']
 
-    if(landingGallery){
-        imagesUrls = landingGallery.images.map(image=>image.url)
+    if(gallery){
+        imagesUrls = gallery.images.map(image=>image.url)
     }
 
     return (
         <>
             <Header title='Vleeswaren' body='Poolse worsten, gerookte hammen, pate’s en nog veel meer producten worden door ons huisbereid.' image='/img/header-sausages.jpg' />            
-            <Intersection 
-                heading={`Vers gerookte producten uit Polen`} 
-                text={`Ons vlees wordt geselecteerd op kwaliteit en vervolgens door ons zelf gerookt. De kwaliteit van ons vlees wordt niet alleen erkend door de lokale bewoners, maar ook door vele winkel eigenaars met poolse producten. Wij onderscheiden ons van de rest door onze oude traditionele recepten en verzekeren u van de hoogste kwaliteit.`}
-            />
+            {abouts.length > 3 && <Intersection 
+                heading={abouts[3].heading} 
+                text={abouts[3].text}
+            />}
             <Cards />
             
             <Intersection 

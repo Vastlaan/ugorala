@@ -7,9 +7,9 @@ import Gallery from '../gallery'
 
 export default function DistilleryComponent() {
 
-    const {state: { stories, galleries }} = useContext(Context)
+    const {state: { stories, galleries, abouts }} = useContext(Context)
 
-    const landingGallery = galleries.find(gal=>gal.name==='landing')
+    const landingGallery = galleries.find(gal=>gal.name==='distillery')
 
     let imagesUrls = ['/img/catering.jpg', '/img/vodka.jpg', '/img/liquor.jpg', '/img/restaurant.jpg', '/img/roast.jpg', '/img/liquor.jpg', '/img/vodka.jpg', '/img/roast.jpg']
 
@@ -20,13 +20,10 @@ export default function DistilleryComponent() {
     return (
         <>
             <Header title='Distilleerderij' body='Wij produceren en verkopen geheel legaal ambachtelijk bier, zelfgemaakte wijnen, ciders en zelfs gin. Maar Moonshine en een breed scala aan likeuren zijn echter onze trots.' image='/img/liquor.jpg' />            
-            <Intersection 
-                heading={`Uitzonderlijk poolse likeuren`} 
-                text={`Wij schromen zeker niet om zo over onszelf te praten. Wij produceren en verkopen geheel legaal ambachtelijk bier, zelfgemaakte wijnen, ciders en zelfs gin. Maar Moonshine en een breed scala aan likeuren zijn echter onze trots.
-                Heeft u zich ooit afgevraagd waar u Moonshine in Nederland kunt kopen? Het antwoord is heel simpel - uGórala!
-                Onze traditionele recepten garanderen u kwaliteit van de hoogste plank.
-                `}
-            />
+            {abouts.length > 2 && <Intersection 
+                heading={abouts[2].heading} 
+                text={abouts[2].text}
+            />}
             <Story 
                 heading={stories[2].heading}
                 imgUrl={stories[2].imgUrl}

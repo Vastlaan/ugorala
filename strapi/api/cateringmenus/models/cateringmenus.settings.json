@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cateringmenus",
+  "info": {
+    "name": "cateringmenus",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "menu_item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu-item.menu-item"
+    }
+  }
+}

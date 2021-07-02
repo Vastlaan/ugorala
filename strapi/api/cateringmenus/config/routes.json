@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/cateringmenus",
+      "handler": "cateringmenus.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cateringmenus/count",
+      "handler": "cateringmenus.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cateringmenus/:id",
+      "handler": "cateringmenus.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/cateringmenus",
+      "handler": "cateringmenus.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/cateringmenus/:id",
+      "handler": "cateringmenus.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/cateringmenus/:id",
+      "handler": "cateringmenus.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

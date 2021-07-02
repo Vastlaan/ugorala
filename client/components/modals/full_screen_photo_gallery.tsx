@@ -79,7 +79,7 @@ const ImageContainer = styled.div`
     min-height: 45rem;
     margin: 0 auto;
 
-    ${()=>respond('m','width: 90%; height:100%;')}
+    ${()=>respond('m','max-width: 80%; height:100%;')}
 `
 const Count = styled.div`
     position: absolute;

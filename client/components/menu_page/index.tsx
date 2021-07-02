@@ -10,7 +10,7 @@ export default function MenuComponent() {
 
     const {state: { menus, galleries }} = useContext(Context)
 
-    const landingGallery = galleries.find(gal=>gal.name==='landing')
+    const landingGallery = galleries.find(gal=>gal.name==='menu')
 
     let imagesUrls = ['/img/catering.jpg', '/img/vodka.jpg', '/img/liquor.jpg', '/img/restaurant.jpg', '/img/roast.jpg', '/img/liquor.jpg', '/img/vodka.jpg', '/img/roast.jpg']
 

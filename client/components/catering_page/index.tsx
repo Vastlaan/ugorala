@@ -8,9 +8,9 @@ import Info from '../contact_page/info'
 
 export default function CateringComponent() {
 
-    const {state: { menus, galleries }} = useContext(Context)
+    const {state: { cateringmenus, galleries, abouts }} = useContext(Context)
 
-    const landingGallery = galleries.find(gal=>gal.name==='landing')
+    const landingGallery = galleries.find(gal=>gal.name==='menu')
 
     let imagesUrls = ['/img/catering.jpg', '/img/vodka.jpg', '/img/liquor.jpg', '/img/restaurant.jpg', '/img/roast.jpg', '/img/liquor.jpg', '/img/vodka.jpg', '/img/roast.jpg']
 
@@ -21,11 +21,11 @@ export default function CateringComponent() {
     return (
         <>
             <Header title='Catering' body='Wij verzorgen heerlijke maaltijden voor gelegenheden door heel Nederland' image='/img/catering.jpg' />            
-            <Intersection 
-                heading={`Speciale evenementen`} 
-                text={`U Górala is een bedrijf met een team bestaande uit liefhebbers voor tradities en goed eten. U kunt ons boeken voor de catering op bedrijfsfeesten, trouwerijen, verjaardagen en overige gelegenheden. Uiteraard denken wij hierbij ook aan de kinderen en toveren we hun verjaardag om in een echt feestmaal!`}
-            />
-            <Menu heading='Speciale Menu' menus={menus} />
+            {abouts.length > 1 && <Intersection 
+                heading={abouts[1].heading} 
+                text={abouts[1].text}
+            />}
+            <Menu heading='Speciale Menu' menus={cateringmenus} />
             <Intersection 
                 heading={`Gallerij`} 
                 text={`Fotos van sommige van onze gerechten`}

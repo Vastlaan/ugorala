@@ -51,6 +51,7 @@ export interface IState {
   stories: any[],
   abouts: any[],
   menus: any[],
+  cateringmenus: any[],
   galleries: any[]
 }
 
