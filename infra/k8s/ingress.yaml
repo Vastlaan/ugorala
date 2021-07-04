@@ -10,7 +10,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: ugorala.test.com
+    - host: ugorala.michalantczak.com
       http:
         paths:
           - path: /
@@ -20,7 +20,7 @@ spec:
                 name: client-cluster-srv
                 port:
                   number: 3000
-    - host: admin.ugorala.test.com
+    - host: admin.ugorala.michalantczak.com
       http:
         paths:
           - path: /

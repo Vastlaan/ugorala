@@ -6,7 +6,7 @@ services:
             - 3000:3000
         build:
             context: client
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile-dev
         image: noirfatale/ugorala-client
         volumes:
             - ./client:/usr/src/app
@@ -21,7 +21,7 @@ services:
             - .env-strapi
         build: 
             context: strapi
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile-dev
         volumes:
             - ./strapi:/usr/src/app
             - /usr/src/app/node_modules
@@ -32,7 +32,7 @@ services:
         image: noirfatale/ugorala-admin
         build: 
             context: admin
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile-dev
         volumes:
             - ./admin:/usr/src/app
             - /usr/src/app/node_modules
