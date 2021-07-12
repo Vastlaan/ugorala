@@ -92,4 +92,8 @@ export const ButtonLink = styled.button<FlexibleComponentProps>`
     font-size: 1.9rem;
     cursor: pointer;
     color: ${(p)=>p.color?p.color:p.theme.grey4};
+
+    &:hover{
+        color: ${p=>p.theme.secondary};
+    }
 `

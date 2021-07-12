@@ -17,6 +17,8 @@ export const darkTheme = {
   secondary: "#bf4545",
 
   grey1: "#fdf8ec",
+  grey2: "#e9ecef",
+  grey3:"#adb5bd",
   grey4: "#453f3c",
   
   black: "#222",

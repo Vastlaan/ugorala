@@ -42,7 +42,6 @@ export const ContentContainer = styled.div<FlexibleComponentProps>`
   display: flex;
   flex-direction: column;
   align-items: ${(p) => (p.align ? p.align : "flex-start")};
-  background-color: ${p=>p.color?p.color:p.theme.grey3};
 `
 
 export const Modal = styled.div`

@@ -29,11 +29,13 @@ export default async function handler(req, res){
                 bucket: process.env.BUCKET_NAME,
                 acl: "public-read",
                 key: function (_req, file, cb) {
+
+                    const newFileName = Date.now() + file.originalname
                     // create a file name, which we later use to append to url and save in database
-                    fileName = `https://s3.${process.env.AWS_REGION}.amazonaws.com/${process.env.BUCKET_NAME}/${file.originalname}`
+                    fileName = `https://s3.${process.env.AWS_REGION}.amazonaws.com/${process.env.BUCKET_NAME}/${newFileName}`
                     cb(
                         null,
-                        file.originalname
+                        newFileName
                     );
                 },
             }),

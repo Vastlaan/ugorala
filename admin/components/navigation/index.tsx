@@ -2,6 +2,7 @@ import {useContext} from 'react'
 import {Context} from '../../globals/stateProvider'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
+import Image from 'next/image'
 import styled from 'styled-components'
 import {ButtonLink} from '../../styles'
 
@@ -19,19 +20,23 @@ export default function NavigationComponent() {
 
     return (
         <Navigation>
+
+            <Logo>
+                <Image src='/img/itcontext-logo.svg' alt='logo itcontext' width='98' height='68' />
+            </Logo>
             {
                 user.isLogged ? <Menu>
                 <Link href='/'>
-                    <ButtonLink margin='0 1.4rem'>
+                    <ButtonLink color='snow' margin='0 1.4rem'>
                         Dashboard
                     </ButtonLink>
                 </Link>
-                <ButtonLink margin='0 1.4rem' onClick={logout}>
+                <ButtonLink color='snow' margin='0 1.4rem' onClick={logout}>
                     Logout
                 </ButtonLink>
             </Menu> : <Menu>
                 <Link href='/auth/login'>
-                    <ButtonLink margin='0 1.4rem'>
+                    <ButtonLink color='snow' margin='0 1.4rem'>
                         Login
                     </ButtonLink>
                 </Link>
@@ -43,17 +48,24 @@ export default function NavigationComponent() {
 }
 
 const Navigation = styled.nav`
+    display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     padding: .9rem 1.4rem;
-    background-color: ${p=>p.theme.grey1};
+    background-color: ${p=>p.theme.black};
     border-bottom: 1px solid rgba(0,0,0,.3);
     z-index: 99;
 `
 const Menu = styled.div`
     width: fit-content;
     margin-left: auto;
+
+`
+const Logo = styled.div`
+    display: flex;
+    align-items: center;
 
 `

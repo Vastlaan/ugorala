@@ -12,6 +12,10 @@ interface ThemeProps extends DefaultTheme {
     secondary?: string,
     greyLight?: string,
     greyDark?: string,
+    grey1?: string,
+    grey2?: string,
+    grey3?: string,
+    grey4?: string,
     black?: string,
     white?: string
   }
@@ -76,6 +80,7 @@ const StylesConatiner = createGlobalStyle`
     margin: 1.4rem 0;
     padding: .9rem 1.4rem;
     align-self: stretch;
+    border: 1px solid ${p=>p.theme.grey3};
 
       &:active, :focus{
         outline: 1px solid rgba(0,0,0,.3);

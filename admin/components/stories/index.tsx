@@ -12,6 +12,7 @@ export default function StoriesComponent({stories}) {
     const [newStories, setNewStories] = useState(stories||[])
     const [displayModal, setDisplayModal] = useState(false)
     const [displayGate, setDisplayGate] = useState(false)
+    const [oldImages, setOldImages] = useState([])
 
     function handleSubmit(e){
         e.preventDefault()
@@ -21,6 +22,7 @@ export default function StoriesComponent({stories}) {
     async function updateStories(){
 
         try{
+            console.log(oldImages)
             const response = await fetch('/api/update_stories', {
                 method: "POST",
                 headers:{
@@ -34,6 +36,22 @@ export default function StoriesComponent({stories}) {
             if(data.status === 'error'){
                 // set up some errors
                 return
+            }
+
+            // delete old files
+            const responseDelete = await fetch('/api/delete_old_images',{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({oldImages})
+            })
+
+            const dataDelete = await responseDelete.json()
+
+            if(dataDelete.error){
+                // setup some error
+                return 
             }
             // display confiramtion modal and refresh page
             setDisplayModal(true)
@@ -51,8 +69,9 @@ export default function StoriesComponent({stories}) {
             <form onSubmit={handleSubmit}>
 
                 {newStories.map((story, i)=>{
+
                     return(
-                        <Story key={`story-${i}`} i={i} story={story} newStories={newStories} setNewStories={setNewStories} />
+                        <Story key={`story-${i}`} i={i} story={story} newStories={newStories} setNewStories={setNewStories} oldImages={oldImages} setOldImages={setOldImages} />
                     )
                 })}
                 <ButtonPrimary margin='1.4rem 0'>Update Stories</ButtonPrimary>

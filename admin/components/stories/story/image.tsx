@@ -2,12 +2,20 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import {FlexCol, TextStrong} from '../../../styles'
 
-export default function ImageComponent({newStories, setNewStories, i, imgUrl}) {
+export default function ImageComponent({newStories, setNewStories, i, imgUrl, setOldImages}) {
 
     const [fileImage, setFileImage] = useState<any>()
     
     async function handleChange(files: FileList){
-        setFileImage(URL.createObjectURL(files[0]))
+
+        if(files.length>0){
+            setFileImage(URL.createObjectURL(files[0]))
+        }
+
+        const oldImage = imgUrl.split('ugorala-assets')[1]
+        const oldImageKey = `ugorala-assets${oldImage}`
+
+        console.log("Old image: ", oldImage)
 
         const dataToSend = new FormData()
         dataToSend.append('file', files[0])
@@ -28,6 +36,8 @@ export default function ImageComponent({newStories, setNewStories, i, imgUrl}) {
                 const newState = [...newStories]
                 newState[i].imgUrl = data.fileName
                 console.log('i',i, ' newState: ', newState)
+
+                setOldImages(prevState=>[...prevState, oldImageKey])
                 return setNewStories(newState)
             }
         }catch(e){
