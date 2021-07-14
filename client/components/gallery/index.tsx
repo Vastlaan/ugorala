@@ -25,7 +25,7 @@ export default function GalleryComponent({imagesUrls}: GalleryProps) {
                 {imagesUrls.map((url, i)=>{
                     return(
                         <ImageContainer key={`gallery-${i}`} onClick={()=>displayFullScreen(i)}>
-                            <Image priority={true} src={url} alt="dish" layout='fill' objectFit='cover' />
+                            <img src={url} alt="dish" />
                         </ImageContainer>
                     )
                 })}
@@ -58,6 +58,12 @@ const ImageContainer = styled.div`
     position: relative;
     width: 100%;
     height: 24rem;
+
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 
     ${()=>respond('s',`
         width: 24rem;

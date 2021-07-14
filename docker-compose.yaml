@@ -7,7 +7,7 @@ services:
         build:
             context: client
             dockerfile: Dockerfile-dev
-        image: noirfatale/ugorala-client
+        image: noirfatale/ugorala-client-dev
         volumes:
             - ./client:/usr/src/app
             - /usr/src/app/node_modules
@@ -16,7 +16,7 @@ services:
             - STRAPI_URL=http://strapi:1337
 
     strapi:
-        image: noirfatale/ugorala-strapi
+        image: noirfatale/ugorala-strapi-dev
         env_file: 
             - .env-strapi
         build: 
@@ -29,7 +29,7 @@ services:
             - 1337:1337
     
     admin:
-        image: noirfatale/ugorala-admin
+        image: noirfatale/ugorala-admin-dev
         build: 
             context: admin
             dockerfile: Dockerfile-dev

@@ -42,6 +42,42 @@ export const ContentContainer = styled.div<FlexibleComponentProps>`
   display: flex;
   flex-direction: column;
   align-items: ${(p) => (p.align ? p.align : "flex-start")};
+  
+`
+
+export const ImageContainer = styled.div`
+  margin: 1.4rem 0;
+  position: relative;
+  width: 25rem;
+  height: 25rem;
+
+  img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+  }
+`
+export const InputContainer = styled.div`
+    position: relative;
+    margin: 1.4rem 0;
+
+    input{
+        visibility: hidden;
+        opacity: 0;
+    }
+    label{
+        position: absolute;
+        top: 0;
+        left:0;
+        min-width: 25rem;
+        margin: 1.4rem 0;
+        padding: .9rem 1.4rem;
+        background-color: ${p=>p.theme.primary};
+        color: ${p=>p.theme.grey1};
+        cursor: pointer;
+        text-align: center;
+        font-size: 1.6rem;
+    }
 `
 
 export const Modal = styled.div`

@@ -40,6 +40,6 @@ export default withIronSession(handler, {
     password: process.env.SESSION_SECRET,
     cookieName: 'ugorala_session',
     cookieOptions: {
-        secure: process.env.NODE_ENV==='production'
+        secure: false   // should be: process.env.NODE_ENV==='production'
     }
 })

@@ -32,7 +32,7 @@ export default function FullScreenPhotoGalleryModal({imagesUrls, currentIndex, s
                 <MdClose />
             </Close>
             <ImageContainer>
-                <Image src={imagesUrls[currentIndex]} alt='dish' layout='fill' objectFit='cover' />
+                <img src={imagesUrls[currentIndex]} alt='dish' />
             </ImageContainer>
             <Buttons>
                 <ButtonIcon onClick={()=>switchPhotoIndex('down')}><IoChevronBackOutline/></ButtonIcon>
@@ -80,6 +80,12 @@ const ImageContainer = styled.div`
     margin: 0 auto;
 
     ${()=>respond('m','max-width: 80%; height:100%;')}
+
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 `
 const Count = styled.div`
     position: absolute;

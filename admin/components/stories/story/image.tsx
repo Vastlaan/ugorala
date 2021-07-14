@@ -35,7 +35,6 @@ export default function ImageComponent({newStories, setNewStories, i, imgUrl, se
             else {
                 const newState = [...newStories]
                 newState[i].imgUrl = data.fileName
-                console.log('i',i, ' newState: ', newState)
 
                 setOldImages(prevState=>[...prevState, oldImageKey])
                 return setNewStories(newState)
@@ -52,7 +51,7 @@ export default function ImageComponent({newStories, setNewStories, i, imgUrl, se
                 <img src={fileImage?fileImage:imgUrl} alt='story' />
             </ImageContainer>
             <InputContainer>
-                <input type="file" style={{visibility:"hidden"}} name={`imgUrl-${i}`} id={`imgUrl-${i}`} onChange={e=> handleChange(e.target.files)} />
+                <input type="file" name={`imgUrl-${i}`} id={`imgUrl-${i}`} onChange={e=> handleChange(e.target.files)} />
                 <label htmlFor={`imgUrl-${i}`} >Upload new image</label>
             </InputContainer>
         </FlexCol>
