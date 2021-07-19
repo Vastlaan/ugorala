@@ -17,6 +17,8 @@ export default function MenuComponent() {
             <ButtonLink onClick={()=>setSectionToRender('abouts')} color='black'><li>Abouts</li></ButtonLink>
             <ButtonLink onClick={()=>setSectionToRender('opening_hours')} color='black'><li>Opening Hours</li></ButtonLink>
             <ButtonLink onClick={()=>setSectionToRender('galleries')} color='black'><li>Galleries</li></ButtonLink>
+            <ButtonLink onClick={()=>setSectionToRender('mainMenu')} color='black'><li>Main Menu</li></ButtonLink>
+            <ButtonLink onClick={()=>setSectionToRender('cateringMenu')} color='black'><li>Catering Menu</li></ButtonLink>
            
         </Menu>
     )
@@ -27,15 +29,17 @@ const Menu = styled.ul`
     position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 1.4rem 0;
+    
     background-color: ${p=>p.theme.black};
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     list-style: none;
     margin-top: 4.2rem;
     z-index: 99;
+    overflow-y: scroll;
 
     ${(p)=>respond('m',`
+       
         position: sticky;
         top: 0;
         background-color: ${p.theme.grey2};
@@ -51,8 +55,11 @@ const Menu = styled.ul`
         font-size: 1.9rem;
         color: ${p=>p.theme.white};
         transition: all .3s;
+        height: 100%;
+        white-space: nowrap;
         
         ${p=>respond('m',`
+            height: auto;
             color: ${p.theme.black};
             border-bottom: 1px solid rgba(0,0,0,.6);
         `)}

@@ -6,8 +6,11 @@ import OpeningHours from '../components/opening_hours'
 import Stories from '../components/stories'
 import Abouts from '../components/abouts'
 import Galleries from '../components/galleries'
+import FoodMenu from '../components/food_menu'
 
-export default function Page({opening_hours, stories, abouts, user, galleries}) {
+export default function Page({opening_hours, stories, abouts, user, galleries, mainMenu, cateringMenu}) {
+
+    console.log(cateringMenu)
 
     const {setUser, sectionToRender} = useContext(Context)
 
@@ -25,6 +28,10 @@ export default function Page({opening_hours, stories, abouts, user, galleries}) 
                 return <Abouts abouts={abouts} />
             case 'galleries':
                 return <Galleries galleries={galleries} />
+            case 'mainMenu':
+                return <FoodMenu key='1' menu={mainMenu} type='menus'/>
+            case 'cateringMenu':
+                return <FoodMenu key='2' menu={cateringMenu} type='cateringmenus'/>
             default:
                 return <Stories stories={stories} />
         }
@@ -59,6 +66,10 @@ export const getServerSideProps = withIronSession( async ({req}) => {
         const abouts = await aboutsJson.json()
         const galleriesJson = await fetch(`${process.env.STRAPI_URL}/galleries?_sort=createdAt:asc`)
         const galleries = await galleriesJson.json()
+        const mainMenuJson = await fetch(`${process.env.STRAPI_URL}/menus?_sort=order:asc`)
+        const mainMenu = await mainMenuJson.json()
+        const cateringMenuJson = await fetch(`${process.env.STRAPI_URL}/cateringmenus?_sort=order:asc`)
+        const cateringMenu = await cateringMenuJson.json()
       
         return {
             props:{
@@ -66,7 +77,9 @@ export const getServerSideProps = withIronSession( async ({req}) => {
                 opening_hours,
                 stories,
                 abouts,
-                galleries
+                galleries,
+                mainMenu,
+                cateringMenu,
             }
         }
       }catch(e){
@@ -78,7 +91,9 @@ export const getServerSideProps = withIronSession( async ({req}) => {
                 opening_hours: [],
                 stories: [],
                 abouts: [],
-                galleries: []
+                galleries: [],
+                mainMenu: [],
+                cateringMenu: []
             }
         }
       }

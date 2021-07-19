@@ -7,8 +7,6 @@ import {respond} from '../styles'
 
 export default function MainLayout({children}) {
 
-    const {setSectionToRender} = useContext(Context)
-
     return (
         <>
             <Navigation />

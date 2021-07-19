@@ -5,13 +5,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styled from 'styled-components'
 import {ButtonLink} from '../../styles'
+import {FiHelpCircle} from 'react-icons/fi'
 
 export default function NavigationComponent() {
 
     const {user, setUser} = useContext(Context)
     const router = useRouter()
-
-    console.log(user)
 
     function logout(){
         setUser({})
@@ -26,11 +25,11 @@ export default function NavigationComponent() {
             </Logo>
             {
                 user.isLogged ? <Menu>
-                <Link href='/'>
+                <a href='tel:0031682307051'>
                     <ButtonLink color='snow' margin='0 1.4rem'>
-                        Dashboard
+                        <FiHelpCircle/> 06 82 30 70 51
                     </ButtonLink>
-                </Link>
+                </a>
                 <ButtonLink color='snow' margin='0 1.4rem' onClick={logout}>
                     Logout
                 </ButtonLink>
@@ -62,6 +61,18 @@ const Navigation = styled.nav`
 const Menu = styled.div`
     width: fit-content;
     margin-left: auto;
+    display: flex;
+
+    button{
+        display: flex;
+        align-items: center;
+
+        svg{
+            margin-right: .9rem;
+            color: ${p=>p.theme.secondary};
+            font-size: 2.2rem;
+        }
+    }
 
 `
 const Logo = styled.div`
