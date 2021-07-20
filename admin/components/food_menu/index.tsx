@@ -1,6 +1,7 @@
 import {useState, useContext} from 'react'
 import styled from 'styled-components'
 import { Context } from '../../globals/stateProvider'
+import Modal from '../modals/confirmation'
 import {ContainerNarrow, ContentContainer, Heading3, FlexRow, Line, ButtonPrimary} from '../../styles'
 
 export default function FoodMenuComponent({menu, type}) {
@@ -8,6 +9,7 @@ export default function FoodMenuComponent({menu, type}) {
   const {user: {jwt}} = useContext(Context)
 
   const [updatedMenu, setUpdatedMenu] = useState<any[]>(menu)
+  const [displayModal, setDisplayModal] = useState(false)
 
   async function updateMenu(){
     const res = await fetch('/api/update_menu',{
@@ -29,6 +31,7 @@ export default function FoodMenuComponent({menu, type}) {
     }
 
     // set successful modal and refreshs
+    setDisplayModal(true)
 
   }
 
@@ -77,6 +80,7 @@ export default function FoodMenuComponent({menu, type}) {
       <ButtonPrimary onClick={updateMenu}>
         Update Menu
       </ButtonPrimary>
+      {displayModal && <Modal setDisplayModal={setDisplayModal} message='You succesfully updated menu card!' />}
     </ContainerNarrow>
   )
 }

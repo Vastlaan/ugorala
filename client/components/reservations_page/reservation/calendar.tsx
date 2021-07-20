@@ -55,9 +55,9 @@ export default function CalendarComponent({date, setDate, chosenDate, setChosenD
           <Heading6 align='left' margin='0 0 1.4rem 0'>Datum:</Heading6>
           <Grid>
             <Control>
-                <button type='button' onClick={()=>date.month > DateTime.now().month && setDate(date.minus({month: 1}))}>{'<'}</button>
+                <button type='button' onClick={()=>date.startOf('day') > DateTime.now().startOf('day') && setDate(date.minus({month: 1}))}>{'<'}</button>
                 <span>{date.monthLong}-{date.year}</span>
-                <button type='button' onClick={()=>setDate(date.plus({month: 1}))}>{'>'}</button>
+                <button type='button' onClick={()=>date.startOf('day') < DateTime.now().plus({month: 6}).startOf('day') && setDate(date.plus({month: 1}))}>{'>'}</button>
             </Control>
             {WEEK_DAYS.map((weekday,i)=><Weekday color={weekday==="Maandag"?"#aaa":""} key={`weekday-${weekday}`}>{weekday.substring(0,2)}</Weekday>)}
             {renderDays()}
